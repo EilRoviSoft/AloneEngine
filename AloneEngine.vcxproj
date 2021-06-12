@@ -44,6 +44,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -133,6 +134,7 @@
       <AdditionalIncludeDirectories>C:\Libs\Cpp\toml11\include;C:\Libs\Cpp\AloneEngine\lib;C:\Libs\Cpp\SFML-2.5.1-x64\include;C:\Libs\Cpp\json-develop\include;C:\Libs\Cpp\pugixml-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,8 +173,18 @@
     <ClInclude Include="lib\atl\abc\Manager.hpp" />
     <ClInclude Include="lib\atl\abc\RandomAccessible.hpp" />
     <ClInclude Include="lib\atl\abc\Runnable.hpp" />
+    <ClInclude Include="lib\atl\event_system\Event.hpp" />
+    <ClInclude Include="lib\atl\event_system\FunctorListener.hpp" />
+    <ClInclude Include="lib\atl\event_system\Listener.hpp" />
+    <ClInclude Include="lib\atl\event_system\MethodListener.hpp" />
+    <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
     <ClInclude Include="lib\atl\manager\TextureManager.hpp" />
+    <ClInclude Include="lib\atl\manager\ThreadPool.hpp" />
+    <ClInclude Include="lib\atl\thread_safe\Queue.hpp" />
+    <ClInclude Include="lib\atl\util\Functions.hpp" />
+    <ClInclude Include="lib\atl\util\Shared.hpp" />
+    <ClInclude Include="lib\atl\util\Unique.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

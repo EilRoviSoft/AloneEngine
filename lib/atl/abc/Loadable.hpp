@@ -39,14 +39,14 @@ namespace atl::abc {
 	class TomlLoadable : public ILoadable <toml::value> {
 	public:
 		//it's crutch, because of Windows weird reading toml file
-		bool loadFromFile(const std::string& _filename) override {
+		bool loadFromFile(const std::string& _filename) override final {
 			std::ifstream file(_filename, std::ios_base::binary);
 			auto result = this->loadFromStream(file);
 			file.close();
 
 			return result;
 		}
-		bool loadFromStream(std::istream& _in) override {
+		bool loadFromStream(std::istream& _in) override final {
 			return this->load(toml::parse(_in));
 		}
 	};
@@ -54,7 +54,7 @@ namespace atl::abc {
 #ifdef JSON_LOADABLE
 	class JsonLoadable : public ILoadable <nlohmann::json> {
 	public:
-		bool loadFromStream(std::istream& _in) override {
+		bool loadFromStream(std::istream& _in) override final {
 			return this->load(nlohmann::json::parse(_in));
 		}
 	};
@@ -62,7 +62,7 @@ namespace atl::abc {
 #ifdef XML_LOADABLE
 	class XmlLoadable : ILoadable <pugi::xml_document> {
 	public:
-		bool loadFromStream(std::istream& _in) override {
+		bool loadFromStream(std::istream& _in) override final {
 			pugi::xml_document document;
 			auto result = document.load(_in);
 			
