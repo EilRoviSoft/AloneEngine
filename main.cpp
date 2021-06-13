@@ -11,15 +11,16 @@ size_t inc(size_t _out) {
 
 int main() {
 	ThreadPool tp(1);
+	tp.start();
 
-	auto result = tp.push(std::function(inc), 10ull);
+	auto result = tp.request(std::function(inc), 10ull);
 
 	result.wait();
 
 	std::string what = std::to_string(result.get()) + '\n';
 	std::cout << what;
 
-	std::this_thread::sleep_for(std::chrono::seconds(5));
+	tp.stop(true);
 
 	return 0;
 }

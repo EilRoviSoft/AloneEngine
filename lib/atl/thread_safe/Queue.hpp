@@ -60,9 +60,6 @@ namespace atl::thread_safe {
 
 			return std::unique_ptr <T>(result);
 		}
-		void clear() {
-			m_storage.clear();
-		}
 
 		//size
 

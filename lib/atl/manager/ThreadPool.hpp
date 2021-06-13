@@ -1,14 +1,15 @@
 #pragma once
 //std
 #include <vector> //vector
-#include <thread> //jthread
+#include <thread> //jthread, this_thread::sleep
 #include <atomic> //atomic
-#include <functional> //function
-#include <mutex> //m_mutex
+#include <functional> //function, bind
+#include <mutex> //mutex
 #include <condition_variable> //condition_variable
 #include <future> //future, packaged_task
 #include <type_traits> //forward
 #include <memory> //unique_ptr, shared_ptr
+#include <chrono> //chrono::miliseconds
 
 //atl
 #include <atl/thread_safe/Queue.hpp> //thread_safe::Queue
@@ -25,9 +26,10 @@ namespace atl::manager {
 		~ThreadPool() {}
 
 		void start() {
-			for (auto& it : m_workers) 
+			for (auto& it : m_workers)
 				if (it.joinable()) it.detach();
 		}
+		//may take a lot of time, because of waiting the end of execution tasks
 		void stop(bool _isWait = false) {
 			if (!_isWait) {
 				if (m_isStop)
@@ -42,11 +44,13 @@ namespace atl::manager {
 
 				m_isDone = true;
 			}
-
 			{
 				std::unique_lock lock(m_mutex);
 				m_cv.notify_all();
 			}
+
+			while (m_aliveThreads != 0)
+				std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		}
 
 		size_t size() const {
@@ -61,6 +65,8 @@ namespace atl::manager {
 		}
 
 		void resize(size_t _countNow) {
+			m_aliveThreads = _countNow;
+
 			size_t countBefore = m_workers.size();
 			if (_countNow == countBefore)
 				return;
@@ -91,7 +97,7 @@ namespace atl::manager {
 		}
 
 		template <class ReturnType, class... TParams>
-		std::future <ReturnType> push(std::function <ReturnType(TParams...)> _function, TParams... _args) {
+		std::future <ReturnType> request(std::function <ReturnType(TParams...)> _function, TParams... _args) {
 			auto pckg = std::shared_ptr <std::packaged_task <ReturnType()>>(
 				new std::packaged_task <ReturnType()>(std::bind(_function, _args...)));
 			m_requests.push(Task([pckg]() {
@@ -110,7 +116,7 @@ namespace atl::manager {
 		thread_safe::Queue <Task> m_requests;
 
 		std::atomic <bool> m_isDone = false, m_isStop = false;
-		std::atomic <size_t> m_idleThreads = 0;
+		std::atomic <size_t> m_idleThreads = 0, m_aliveThreads = 0;
 
 		std::mutex m_mutex;
 		std::condition_variable m_cv;
@@ -122,32 +128,37 @@ namespace atl::manager {
 
 		void _thread_algorythm(size_t _id) {
 			std::atomic <bool>& flag = *m_flags.at(_id);
-			auto function = m_requests.try_pop();;
+			auto function = std::move(m_requests.try_pop());
 
 			while (true) {
 				while (function.get() != nullptr) {
-					(*function)();
+					try {
+						(*function)();
+					} catch (std::exception _e) {
+						std::cerr << _e.what();
+					}
+
 					function.reset(nullptr);
 
 					if (flag)
 						return;
 					else {
-						function = m_requests.try_pop();
+						function = std::move(m_requests.try_pop());
 					}
 				}
 
-				std::cout << "passed!\n";
 				std::unique_lock lock(m_mutex);
-				std::cout << "passed!\n";
 				m_idleThreads++;
 				m_cv.wait(lock, [this, &flag, &function]() {
-					std::cout << "called!\n";
-					function = m_requests.try_pop();
+					function = std::move(m_requests.try_pop());
 					return (function.get() != nullptr) || m_isDone || flag;
 				});
 				m_idleThreads--;
 
-				if (function.get() == nullptr) return;
+				if (function.get() == nullptr) {
+					m_aliveThreads--;
+					return;
+				}
 			}
 		}
 	};
