@@ -22,9 +22,6 @@
     <Filter Include="Library\AloneTemplateLibrary\Util">
       <UniqueIdentifier>{84ab16a8-f67c-4845-a8eb-a5d55a502f3f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\Manager\EventManager">
-      <UniqueIdentifier>{21f9ff89-8d5d-47be-add5-db1e3d15c0d4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library\AloneTemplateLibrary\ThreadSafe">
       <UniqueIdentifier>{bf59ac69-1cb8-45f0-9a7f-06b6e039abfd}</UniqueIdentifier>
     </Filter>
@@ -54,17 +51,8 @@
     <ClInclude Include="lib\atl\util\Functions.hpp">
       <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
-    <ClInclude Include="lib\atl\thread_safe\Queue.hpp">
-      <Filter>Library\AloneTemplateLibrary\ThreadSafe</Filter>
-    </ClInclude>
     <ClInclude Include="lib\atl\manager\ThreadPool.hpp">
       <Filter>Library\AloneTemplateLibrary\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\util\Shared.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\util\Unique.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\event_system\Publisher.hpp">
       <Filter>Library\AloneTemplateLibrary\EventSystem</Filter>
@@ -80,6 +68,12 @@
     </ClInclude>
     <ClInclude Include="lib\atl\event_system\FunctorListener.hpp">
       <Filter>Library\AloneTemplateLibrary\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\thread_safe\Queue.hpp">
+      <Filter>Library\AloneTemplateLibrary\ThreadSafe</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\util\Bundle.hpp">
+      <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

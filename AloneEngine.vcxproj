@@ -182,9 +182,8 @@
     <ClInclude Include="lib\atl\manager\TextureManager.hpp" />
     <ClInclude Include="lib\atl\manager\ThreadPool.hpp" />
     <ClInclude Include="lib\atl\thread_safe\Queue.hpp" />
+    <ClInclude Include="lib\atl\util\Bundle.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
-    <ClInclude Include="lib\atl\util\Shared.hpp" />
-    <ClInclude Include="lib\atl\util\Unique.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
