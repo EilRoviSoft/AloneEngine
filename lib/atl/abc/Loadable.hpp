@@ -4,11 +4,11 @@
 #include <toml/include.hpp> //value
 #endif
 #ifdef JSON_LOADABLE
-//nlohmann json
+//nlohmann (json)
 #include <nlohmann/json.hpp> //json
 #endif
 #ifdef XML_LOADABLE
-//pugi xml
+//pugi (xml)
 #include <pugixml/pugixml.hpp> //xml_node
 #endif
 
@@ -25,7 +25,7 @@ namespace atl::abc {
 
 		virtual bool loadFromFile(const std::string& _filename) {
 			std::ifstream file(_filename);
-			auto result = this->loadFromStream(file);
+			auto result = loadFromStream(file);
 			file.close();
 
 			return result;
@@ -41,13 +41,13 @@ namespace atl::abc {
 		//it's crutch, because of Windows weird reading toml file
 		bool loadFromFile(const std::string& _filename) override final {
 			std::ifstream file(_filename, std::ios_base::binary);
-			auto result = this->loadFromStream(file);
+			auto result = loadFromStream(file);
 			file.close();
 
 			return result;
 		}
 		bool loadFromStream(std::istream& _in) override final {
-			return this->load(toml::parse(_in));
+			return load(toml::parse(_in));
 		}
 	};
 #endif
@@ -55,7 +55,7 @@ namespace atl::abc {
 	class JsonLoadable : public ILoadable <nlohmann::json> {
 	public:
 		bool loadFromStream(std::istream& _in) override final {
-			return this->load(nlohmann::json::parse(_in));
+			return load(nlohmann::json::parse(_in));
 		}
 	};
 #endif
@@ -66,7 +66,7 @@ namespace atl::abc {
 			pugi::xml_document document;
 			auto result = document.load(_in);
 			
-			return this->load(document);
+			return load(document);
 		}
 	};
 #endif

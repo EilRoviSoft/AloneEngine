@@ -1,10 +1,10 @@
 #pragma once
 //std
 #include <concepts> //std::invocable
+#include <memory> //std::shared_ptr
 
 //atl
 #include <atl/event_system/Listener.hpp> //event_system::IListener
-#include <atl/util/Shared.hpp> //util::Shared
 
 namespace atl::event_system {
 	template <class TInvocable, class ...TParams>
