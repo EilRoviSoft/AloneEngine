@@ -102,5 +102,8 @@
     <ClInclude Include="lib\atl\abc\Renderer.hpp">
       <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
     </ClInclude>
+    <ClInclude Include="lib\atl\util\Bucket.hpp">
+      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
