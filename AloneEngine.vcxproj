@@ -178,12 +178,18 @@
     <ClInclude Include="lib\atl\event_system\Listener.hpp" />
     <ClInclude Include="lib\atl\event_system\MethodListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
+    <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
     <ClInclude Include="lib\atl\manager\TextureManager.hpp" />
     <ClInclude Include="lib\atl\manager\ThreadPool.hpp" />
     <ClInclude Include="lib\atl\thread_safe\Queue.hpp" />
+    <ClInclude Include="lib\atl\ui\Element.hpp" />
+    <ClInclude Include="lib\atl\ui\Renderer.hpp" />
+    <ClInclude Include="lib\atl\ui\TextBox.hpp" />
     <ClInclude Include="lib\atl\util\Bundle.hpp" />
+    <ClInclude Include="lib\atl\util\fail.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
+    <ClInclude Include="lib\atl\util\property.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

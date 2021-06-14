@@ -28,6 +28,9 @@
     <Filter Include="Library\AloneTemplateLibrary\EventSystem">
       <UniqueIdentifier>{64d8739c-3957-42bd-bab5-d63fee16412b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library\AloneTemplateLibrary\GameTools">
+      <UniqueIdentifier>{d8951de2-8d18-449a-aeee-852f761e1f69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\atl\manager\TextureManager.hpp">
@@ -73,6 +76,24 @@
       <Filter>Library\AloneTemplateLibrary\ThreadSafe</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\util\Bundle.hpp">
+      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\game_tools\GameWindow.hpp">
+      <Filter>Library\AloneTemplateLibrary\GameTools</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\ui\TextBox.hpp">
+      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\ui\Renderer.hpp">
+      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\ui\Element.hpp">
+      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\util\property.hpp">
+      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\util\fail.hpp">
       <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
   </ItemGroup>
