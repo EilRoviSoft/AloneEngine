@@ -1,5 +1,9 @@
 #pragma once
+//std
 #include <thread> //thread
+
+//atl
+#include <atl/util/Functions.hpp> //util::hash
 
 namespace atl::abc {
 	class IRunnable {
@@ -18,7 +22,7 @@ namespace atl::abc {
 		}
 
 		size_t id() const {
-			return std::hash <std::thread::id> {}(this->m_thread.get_id());
+			return util::hash(this->m_thread.get_id());
 		}
 	};
 }

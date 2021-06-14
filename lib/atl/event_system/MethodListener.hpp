@@ -1,7 +1,6 @@
 #pragma once
 //atl
 #include <atl/event_system/Listener.hpp> //event_system::IListener
-#include <atl/util/Shared.hpp> //util::Shared
 
 namespace atl::event_system {
 	template <class TObject, class ...TParams>
