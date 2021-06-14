@@ -38,53 +38,49 @@ namespace atl::util {
 		property(Type&& _value) : IProperty <Type>(_value) {}
 
 		void set(const Type& _value) override {
-			m_value = _value;
+			this->m_value = _value;
 		}
 		void set(Type&& _value) override {
-			m_value = _value;
+			this->m_value = _value;
 		}
 
 		Type* operator->() {
-			return &m_value;
+			return &this->m_value;
 		}
 
 		Type& get() override {
-			return m_value;
+			return this->m_value;
 		}
 		const Type& get() const override {
-			return m_value;
+			return this->m_value;
 		}
 
 		operator const Type& () const {
-			return m_value;
+			return this->m_value;
 		}
 	};
 
 	template <class Type>
 	class readonly : public property <Type> {
 	public:
-		readonly() : IProperty <Type>() {}
+		readonly() : property <Type>() {}
 		readonly(const Type& _value) : property <Type>(_value) {}
 		readonly(Type&& _value) : property <Type>(_value) {}
 
-		void set(const Type& _value) override {
-			static_assert(fail <bool>::value, "Don't use it!");
-			//crutch, it's for remove warnings and errors
+		void set(const Type& _value) final override {
+			throw("Do not use it!");
 		}
-		void set(Type&& _value) override {
-			static_assert(fail <bool>::value, "Don't use it!");
-			//crutch, it's for remove warnings and errors
+		void set(Type&& _value) final override {
+			throw("Do not use it!");
 		}
 
-		Type& get() override {
-			static_assert(fail <bool>::value, "Don't use it!");
-			//crutch, it's for remove warnings and errors
-			return m_value;
+		Type& get() final override {
+			throw("Do not use it!");
+			return this->m_value;
 		}
-		const Type& get() const override {
-			static_assert(fail <bool>::value, "Don't use it!");
-			//crutch, it's for remove warnings and errors
-			return m_value;
+		const Type& get() const final override {
+			throw("Do not use it!");
+			return this->m_value;
 		}
 	};
 }

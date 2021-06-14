@@ -8,13 +8,19 @@
 #include <atl/ui/Element.hpp> //IElement
 
 namespace atl::ui {
-	class TextBox : public ui::IElement {
+	class TextBox : public IElement {
 	public:
+		TextBox() : IElement() {}
 		TextBox(const sf::Text& _text, const sf::RectangleShape& _back) :
-			text(_text), box(_back), ui::IElement() {}
+			text(_text), box(_back), IElement() {}
 
 		readonly <sf::Text> text;
 		readonly <sf::RectangleShape> box;
+		
+		//TODO
+		void wrapText() {
+			
+		}
 
 	protected:
 		virtual void draw(sf::RenderTarget& _target, sf::RenderStates _states) const override {

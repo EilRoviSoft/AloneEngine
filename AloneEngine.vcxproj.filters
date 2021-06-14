@@ -84,17 +84,23 @@
     <ClInclude Include="lib\atl\ui\TextBox.hpp">
       <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
     </ClInclude>
-    <ClInclude Include="lib\atl\ui\Renderer.hpp">
-      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\ui\Element.hpp">
-      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
-    </ClInclude>
     <ClInclude Include="lib\atl\util\property.hpp">
       <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\util\fail.hpp">
       <Filter>Library\AloneTemplateLibrary\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\manager\UiRenderer.hpp">
+      <Filter>Library\AloneTemplateLibrary\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\abc\UiElement.hpp">
+      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\ui\Element.hpp">
+      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\abc\Renderer.hpp">
+      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
