@@ -1,11 +1,12 @@
 #pragma once
 //std
-#include <string> //std::string
-#include <unordered_map> //std::unoredered_map
+#include <string> //string
+#include <unordered_map> //unoredered_map
 
 //atl
 #define TOML_LOADABLE
-#include <atl/abc/Loadable.hpp> //sf::TomlLoadable
+#include <atl/abc/Loadable.hpp> //abc::TomlLoadable
+#include <atl/util/Functions.hpp> //util::hash
 
 namespace atl::abc {
 	template <class ValueType>
@@ -23,16 +24,16 @@ namespace atl::abc {
 			std::string path = _data.at("path").as_string();
 
 			for (auto it : _data.at("files").as_array())
-				this->loadItem(path, it);
+				loadItem(path, it);
 
 			return true;
 		}
 
 		ValueType& at(const std::string& _key) {
-			return this->m_content.at(std::hash <std::string>{} (_key));
+			return m_content.at(util::hash(_key));
 		}
 		const ValueType& at(const std::string& _key) const {
-			return this->m_content.at(std::hash <std::string>{} (_key));
+			return m_content.at(util::hash(_key));
 		}
 	};
 }

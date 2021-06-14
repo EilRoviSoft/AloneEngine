@@ -1,6 +1,6 @@
 #pragma once
-//atl
-#include <atl/util/Shared.hpp> //util::Shared
+//std
+#include <memory> //shared_ptr
 
 namespace atl::event_system {
 	template <class ...TParams>
@@ -15,5 +15,5 @@ namespace atl::event_system {
 	};
 
 	template <class ...TParams>
-	using Listener = util::Shared <IListener <TParams...>>;
+	using Listener = std::shared_ptr <IListener <TParams...>>;
 }

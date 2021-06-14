@@ -10,6 +10,7 @@
 #include <type_traits> //forward
 #include <memory> //unique_ptr, shared_ptr
 #include <chrono> //chrono::miliseconds
+#include <iostream> //std::cerr
 
 //atl
 #include <atl/thread_safe/Queue.hpp> //thread_safe::Queue
@@ -30,7 +31,7 @@ namespace atl::manager {
 				if (it.joinable()) it.detach();
 		}
 		//may take a lot of time, because of waiting the end of execution tasks
-		void stop(bool _isWait = false) {
+		void stop(size_t _timeout = 500, bool _isWait = false) {
 			if (!_isWait) {
 				if (m_isStop)
 					return;
@@ -50,7 +51,7 @@ namespace atl::manager {
 			}
 
 			while (m_aliveThreads != 0)
-				std::this_thread::sleep_for(std::chrono::milliseconds(500));
+				std::this_thread::sleep_for(std::chrono::milliseconds(_timeout));
 		}
 
 		size_t size() const {

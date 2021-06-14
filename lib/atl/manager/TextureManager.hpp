@@ -18,17 +18,17 @@ namespace atl::manager {
 	protected:
 		void loadItem(const std::string& _folder, const toml::value& _it) override {
 			size_t key = util::hash(_it.as_string());
-			this->m_content.insert({ key, sf::Texture() });
+			m_content.insert({ key, sf::Texture() });
 
-			auto it = this->m_content.find(key);
-			if (it != this->m_content.end())
+			auto it = m_content.find(key);
+			if (it != m_content.end())
 				it->second.loadFromFile(_folder + _it.as_string().str);
 		}
 
 	public:
 		TextureManager() {}
 		TextureManager(const std::string& _filename) {
-			this->loadFromFile(_filename);
+			loadFromFile(_filename);
 		}
 	};
 }
