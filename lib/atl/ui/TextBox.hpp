@@ -17,9 +17,13 @@ namespace atl::ui {
 		readonly <sf::Text> text;
 		readonly <sf::RectangleShape> box;
 		
-		//TODO
-		void wrapText() {
-			
+		void wrapText(float _padding = 5.f) {
+			auto rect = text->getGlobalBounds();
+			auto position = text->getPosition();
+			float dx = rect.left - position.x, dy = rect.top - position.y;
+
+			box->setSize(sf::Vector2f(rect.width + dx + _padding * 2, rect.height + dy + _padding * 2));
+			box->setPosition(sf::Vector2f(position.x - _padding, position.y - _padding));
 		}
 
 	protected:
