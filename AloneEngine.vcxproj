@@ -172,18 +172,27 @@
     <ClInclude Include="lib\atl\abc\Loadable.hpp" />
     <ClInclude Include="lib\atl\abc\Manager.hpp" />
     <ClInclude Include="lib\atl\abc\RandomAccessible.hpp" />
+    <ClInclude Include="lib\atl\abc\Renderer.hpp" />
     <ClInclude Include="lib\atl\abc\Runnable.hpp" />
+    <ClInclude Include="lib\atl\abc\UiElement.hpp" />
     <ClInclude Include="lib\atl\event_system\Event.hpp" />
     <ClInclude Include="lib\atl\event_system\FunctorListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Listener.hpp" />
     <ClInclude Include="lib\atl\event_system\MethodListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
+    <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
+    <ClInclude Include="lib\atl\manager\UiRenderer.hpp" />
     <ClInclude Include="lib\atl\manager\TextureManager.hpp" />
     <ClInclude Include="lib\atl\manager\ThreadPool.hpp" />
     <ClInclude Include="lib\atl\thread_safe\Queue.hpp" />
+    <ClInclude Include="lib\atl\ui\Element.hpp" />
+    <ClInclude Include="lib\atl\ui\TextBox.hpp" />
+    <ClInclude Include="lib\atl\util\Bucket.hpp" />
     <ClInclude Include="lib\atl\util\Bundle.hpp" />
+    <ClInclude Include="lib\atl\util\fail.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
+    <ClInclude Include="lib\atl\util\property.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
