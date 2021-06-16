@@ -131,16 +131,17 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Libs\Cpp\toml11\include;C:\Libs\Cpp\AloneEngine\lib;C:\Libs\Cpp\SFML-2.5.1-x64\include;C:\Libs\Cpp\json-develop\include;C:\Libs\Cpp\pugixml-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libs\Cpp\toml11\include;C:\Libs\Cpp\AloneEngine\lib;C:\Libs\Cpp\SFML-2.5.1-x64\include;C:\Libs\Cpp\json-develop\include;C:\Libs\Cpp\pugixml-master\src;C:\Libs\Cpp\DiscordGameSdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <CompileAsManaged>false</CompileAsManaged>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Libs\Cpp\SFML-2.5.1-x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Libs\Cpp\SFML-2.5.1-x64\lib;C:\Libs\Cpp\DiscordGameSdk\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;discord_game_sdk.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -193,6 +194,7 @@
     <ClInclude Include="lib\atl\util\fail.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
     <ClInclude Include="lib\atl\util\property.hpp" />
+    <ClInclude Include="lib\atl\util\readonly.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
