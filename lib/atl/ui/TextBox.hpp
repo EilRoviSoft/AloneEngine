@@ -4,7 +4,7 @@
 #include <SFML/System/Vector2.hpp> //Vector2f
 
 //atl
-#include <atl/util/property.hpp> //readonly
+#include <atl/util/readonly.hpp> //readonly
 #include <atl/ui/Element.hpp> //IElement
 
 namespace atl::ui {
