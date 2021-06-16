@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE element>
+<main name="tb1" visible="true">
+	<TextBox>
+		<mods>
+			<value content="wrap" />
+		</mods>
+
+		<text string="Hello World" size="48">
+			<position x="100" y="100" />
+		</text>
+		<box>
+			<color-inline r="255"/>
+		</box>
+	</TextBox>
+</main>

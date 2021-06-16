@@ -3,8 +3,8 @@
 #include <SFML/Graphics.hpp> //RenderTarget, RenderStates, Text, RectangleShape
 #include <SFML/System.hpp> //String, Vector2f
 
-//toml
-#include <toml/value.hpp> //value
+//pugi
+#include <pugixml/pugixml.hpp> //xml_node
 
 //atl
 #include <atl/util/readonly.hpp> //util::readonly
@@ -33,47 +33,45 @@ namespace atl::ui {
 			box->setPosition(sf::Vector2f(position.x - _padding, position.y - _padding));
 		}
 
-		virtual bool load(const toml::value& _data) override {
-			if (!IElement::load(_data))
-				return false;
+		virtual bool load(const pugi::xml_node& _data) override {
+			if (!IUiElement::load(_data)) return false;
 
-			auto dataTextBox = _data.at("TextBox");
+			if (!_data.child("TextBox")) return false;
+			auto dataTextBox = _data.child("TextBox");
 			//text
 			{
-				auto dataText = dataTextBox.at("text");
+				if (!dataTextBox.child("text")) return false;
+				auto dataText = dataTextBox.child("text");
 
-				if (!dataText.contains("string"))
+				if (!dataText.attribute("string"))
 					return false;
 
-				text->setString(sf::String(dataText.at("string").as_string()));
-				if (dataText.contains("size"))
-					text->setCharacterSize(dataText.at("size").as_integer());
+				text->setString(sf::String(dataText.attribute("string").as_string()));
+				text->setCharacterSize(dataText.attribute("size").as_uint(30));
 
-				//for top-left
-				if (dataText.contains("position"))
-					text->setPosition(util::loadVector2f(dataText.at("position")));
-				else if (dataText.contains("center"))
-					text->setPosition(util::calcPositionByCenter(util::loadVector2f(dataText.at("center")), text->getPosition()));
+				if (dataText.child("center")) {
+					auto bounds = text->getLocalBounds();
+
+					text->setPosition(abc::IUiElement::calcPositionByCenter(
+						util::loadVector2f(dataText.child("center")), sf::Vector2f(bounds.width, bounds.height)));
+				} else
+					text->setPosition(util::loadVector2f(dataText.child("position")));
 			}
+
 			//box
 			{
-				auto dataBox = dataTextBox.at("box");
-
-				if (dataBox.contains("size"))
-					box->setSize(util::loadVector2f(dataBox.at("size")));
-				if (dataBox.contains("position"))
-					box->setPosition(util::loadVector2f(dataBox.at("position")));
-				if (dataBox.contains("color-inline"))
-					box->setFillColor(util::loadColor(dataBox.at("color-inline")));
-				if (dataBox.contains("color-outline"))
-					box->setOutlineColor(util::loadColor(dataBox.at("color-outline")));
+				if (!dataTextBox.child("box")) return false;
+				auto dataBox = dataTextBox.child("box");
+				
+				box->setSize(util::loadVector2f(dataBox.child("size")));
+				box->setPosition(util::loadVector2f(dataBox.child("position")));
+				box->setFillColor(util::loadColor(dataBox.child("color-inline")));
+				box->setOutlineColor(util::loadColor(dataBox.child("color-outline")));
 			}
 
-			if (dataTextBox.contains("mods")) {
-				auto temp = dataTextBox.at("mods").as_array();
-
-				for (const auto& it : temp)
-					TextBox::mods.call(it.as_string(), *this);
+			if (dataTextBox.child("mods")) {
+				for (const auto& it : dataTextBox.child("mods"))
+					TextBox::mods.call(it.attribute("content").as_string(), *this);
 			}
 
 			return true;

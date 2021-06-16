@@ -148,4 +148,9 @@
       <Filter>Resources %28res%29\textures</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="res\ui\test.xml">
+      <Filter>Resources %28res%29\ui</Filter>
+    </Xml>
+  </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@
 #endif
 #ifdef XML_LOADABLE
 //pugi (xml)
-#include <pugixml/pugixml.hpp> //xml_node
+#include <pugixml/pugixml.hpp> //xml_document, xml_node
 #endif
 
 //std
@@ -60,13 +60,15 @@ namespace atl::abc {
 	};
 #endif
 #ifdef XML_LOADABLE
-	class XmlLoadable : ILoadable <pugi::xml_document> {
+	class XmlLoadable : public ILoadable <pugi::xml_node> {
 	public:
 		bool loadFromStream(std::istream& _in) override final {
 			pugi::xml_document document;
-			auto result = document.load(_in);
+
+			if (!document.load(_in) || !document.child("main"))
+				return false;
 			
-			return load(document);
+			return load(document.child("main"));
 		}
 	};
 #endif

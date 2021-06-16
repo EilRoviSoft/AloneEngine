@@ -17,7 +17,7 @@ int main() {
 	auto tb = std::dynamic_pointer_cast <ui::TextBox>(element);
 
 	tb->text->setFont(font);
-	tb->loadFromFile("res/ui/test.toml");
+	tb->loadFromFile("res/ui/test.xml");
 
 	renderer.add(element);
 

@@ -2,8 +2,8 @@
 //sf
 #include <SFML/Graphics.hpp> //Drawable
 
-//toml
-#include <toml/value.hpp> //value
+//pugi
+#include <pugixml/pugixml.hpp> //xml_document
 
 //std
 #include <atomic> //atomic
@@ -11,8 +11,8 @@
 #include <string> //string
 
 //atl
-#define TOML_LOADABLE
-#include <atl/abc/Loadable.hpp> //abc::TomlLoadable
+#define XML_LOADABLE
+#include <atl/abc/Loadable.hpp> //abc::XmlLoadable
 #include <atl/util/Functions.hpp> //util::hash
 
 namespace atl::manager {
@@ -20,23 +20,26 @@ namespace atl::manager {
 }
 
 namespace atl::abc {
-	class IUiElement : public sf::Drawable, public TomlLoadable {
+	class IUiElement : public sf::Drawable, public XmlLoadable {
 		friend class manager::UiRenderer;
 	public:
+		static sf::Vector2f calcPositionByCenter(sf::Vector2f _position, sf::Vector2f _size) {
+			return sf::Vector2f(_position.x - _size.x / 2, _position.y - _size.y / 2);
+		}
+
 		std::atomic <bool> isVisible = true;
 
 		size_t get_id() const {
 			return _id;
 		}
 
-		bool virtual load(const toml::value& _data) {
-			if (!_data.contains("name"))
+		bool virtual load(const pugi::xml_node& _data) {
+			if (!_data.attribute("name"))
 				return false;
 
-			set_id(_data.at("name").as_string());
+			set_id(_data.attribute("name").as_string());
 
-			if (_data.contains("visible"))
-				isVisible = _data.at("visible").as_boolean();
+			isVisible = _data.attribute("visible").as_bool(true);
 
 			return true;
 		}
