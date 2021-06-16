@@ -10,7 +10,6 @@
 //atl
 #include <atl/ui/Element.hpp> //ui::Element
 #include <atl/abc/Renderer.hpp> //abc::IRenderer
-#include <atl/util/Bucket.hpp> //util::Bucket
 
 namespace atl::manager {
 	//shared or unique based?
@@ -24,9 +23,11 @@ namespace atl::manager {
 				_window.draw(*it);
 		}
 
-		Iterator findById(size_t _id) const {
-			return std::find_if(m_layers.begin(), m_layers.end(), [_id](const ui::Element& _it) { 
-				return _it->id() == _id; 
+		Iterator findByName(const std::string& _name) const {
+			auto id = util::hash(_name);
+
+			return std::find_if(m_layers.begin(), m_layers.end(), [id](const ui::Element& _it) { 
+				return _it->get_id() == id;
 			});
 		}
 
@@ -35,15 +36,13 @@ namespace atl::manager {
 			m_layers.push_back(_what);
 
 			auto it = std::prev(m_layers.end());
-			(*it)->m_id = m_generator.allocate();
+			//(*it)->m_id = m_generator.allocate();
 
 			return it;
 		}
 		//insert item in place of iterator
 		Iterator add(ui::Element _what, Iterator _where) {
 			auto it = m_layers.insert(_where, _what);
-			(*it)->m_id = m_generator.allocate();
-
 			return it;
 		}
 
@@ -60,14 +59,10 @@ namespace atl::manager {
 		Iterator remove(Iterator _where) {
 			if (_where == m_layers.end())
 				return m_layers.end();
-
-			m_generator.free((*_where)->m_id);
-
 			return m_layers.erase(_where);
 		}
 
 	protected:
 		std::list <ui::Element> m_layers;
-		util::Bucket m_generator;
 	};
 }

@@ -193,8 +193,20 @@
     <ClInclude Include="lib\atl\util\Bundle.hpp" />
     <ClInclude Include="lib\atl\util\fail.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
+    <ClInclude Include="lib\atl\util\Modifiers.hpp" />
     <ClInclude Include="lib\atl\util\property.hpp" />
     <ClInclude Include="lib\atl\util\readonly.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\settings\config.toml" />
+    <None Include="res\settings\textures.toml" />
+    <None Include="res\ui\test.toml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\settings\ptserif.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\madoka magica.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

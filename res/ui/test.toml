@@ -1,0 +1,13 @@
+name = "tb1"
+visible = true
+
+[TextBox]
+mods = ["wrap"]
+
+[TextBox.text]
+	string = "You are gay"
+	size = 46
+
+
+[TextBox.box]
+	position = [0, 0]
