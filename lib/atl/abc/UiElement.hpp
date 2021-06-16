@@ -30,10 +30,15 @@ namespace atl::abc {
 		}
 
 		bool virtual load(const toml::value& _data) {
+			if (!_data.contains("name"))
+				return false;
+
 			set_id(_data.at("name").as_string());
 
 			if (_data.contains("visible"))
 				isVisible = _data.at("visible").as_boolean();
+
+			return true;
 		}
 
 	protected:

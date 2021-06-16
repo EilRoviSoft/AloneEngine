@@ -1,6 +1,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <atl/ui/TextBox.hpp>
 #include <atl/manager/UiRenderer.hpp>
+//#include <atl/game_tools/Core.hpp>
 
 sf::RenderWindow window(sf::VideoMode(800, 600), "Window!");
 namespace ui = atl::ui;
@@ -15,13 +16,8 @@ int main() {
 	ui::Element element(new ui::TextBox());
 	auto tb = std::dynamic_pointer_cast <ui::TextBox>(element);
 
-	tb->box->setFillColor(sf::Color::Blue);
 	tb->text->setFont(font);
-	tb->text->setCharacterSize(32);
-	tb->text->setString("Shen0 is gay!");
-	tb->text->setPosition(100, 100);
-
-	tb->wrapText();
+	tb->loadFromFile("res/ui/test.toml");
 
 	renderer.add(element);
 

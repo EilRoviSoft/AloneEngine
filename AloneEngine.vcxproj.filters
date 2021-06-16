@@ -31,17 +31,17 @@
     <Filter Include="Library\AloneTemplateLibrary\GameTools">
       <UniqueIdentifier>{d8951de2-8d18-449a-aeee-852f761e1f69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources">
+    <Filter Include="Resources %28res%29">
       <UniqueIdentifier>{63095b11-b365-4b2d-a5f5-f49ac84d7f3f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\Settings">
-      <UniqueIdentifier>{c1b3ea69-c241-44ed-92d9-1290275b7a8f}</UniqueIdentifier>
+    <Filter Include="Resources %28res%29\ui">
+      <UniqueIdentifier>{ae36c2db-a66b-49fe-b538-90a5522805e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\Textures">
+    <Filter Include="Resources %28res%29\textures">
       <UniqueIdentifier>{18d8c340-c4e1-405c-9ecd-e9b159a6f3b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\UserInterface">
-      <UniqueIdentifier>{ae36c2db-a66b-49fe-b538-90a5522805e4}</UniqueIdentifier>
+    <Filter Include="Resources %28res%29\settings">
+      <UniqueIdentifier>{c1b3ea69-c241-44ed-92d9-1290275b7a8f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -123,26 +123,29 @@
     <ClInclude Include="lib\atl\util\Modifiers.hpp">
       <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
+    <ClInclude Include="lib\atl\game_tools\Core.hpp">
+      <Filter>Library\AloneTemplateLibrary\GameTools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\settings\config.toml">
-      <Filter>Resources\Settings</Filter>
+      <Filter>Resources %28res%29\settings</Filter>
     </None>
     <None Include="res\settings\textures.toml">
-      <Filter>Resources\Settings</Filter>
+      <Filter>Resources %28res%29\settings</Filter>
     </None>
     <None Include="res\ui\test.toml">
-      <Filter>Resources\UserInterface</Filter>
+      <Filter>Resources %28res%29\ui</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\settings\ptserif.ttf">
-      <Filter>Resources\Settings</Filter>
+      <Filter>Resources %28res%29\settings</Filter>
     </Font>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\madoka magica.jpg">
-      <Filter>Resources\Textures</Filter>
+      <Filter>Resources %28res%29\textures</Filter>
     </Image>
   </ItemGroup>
 </Project>

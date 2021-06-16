@@ -2,12 +2,17 @@ name = "tb1"
 visible = true
 
 [TextBox]
-mods = ["wrap"]
+	#if 'wrap', font have to be the first
+	mods = ["wrap"]
 
 [TextBox.text]
-	string = "You are gay"
+	string = "Hello World"
 	size = 46
-
+	center = [100.0, 100.0]
+	#use one of them: central-position or position
 
 [TextBox.box]
-	position = [0, 0]
+	#write as FLOAT, not as INTEGER!
+	#position = [100.0, 100.0]
+	#rgb
+	color-inline = [255, 0, 0]

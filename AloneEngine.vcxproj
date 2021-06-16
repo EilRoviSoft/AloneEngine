@@ -181,6 +181,7 @@
     <ClInclude Include="lib\atl\event_system\Listener.hpp" />
     <ClInclude Include="lib\atl\event_system\MethodListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
+    <ClInclude Include="lib\atl\game_tools\Core.hpp" />
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
     <ClInclude Include="lib\atl\manager\UiRenderer.hpp" />
