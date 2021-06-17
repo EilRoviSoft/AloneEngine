@@ -21,7 +21,12 @@ namespace atl::util {
 		}
 
 		void call(const std::string& _name, Type& _object) const {
-			m_tasks.at(hash(_name))(_object);
+			auto key = hash(_name);
+
+			if (!m_tasks.contains(key))
+				return void();
+
+			m_tasks.at(key)(_object);
 		}
 
 		void bind(const std::string& _name, const WrapedTask <Type>& _func) {

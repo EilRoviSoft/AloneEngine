@@ -2,15 +2,8 @@
 <!DOCTYPE element>
 <main name="tb1" visible="true">
 	<TextBox>
-		<mods>
-			<value content="wrap" />
-		</mods>
-
-		<text string="Hello World" size="48">
-			<position x="100" y="100" />
-		</text>
-		<box>
-			<color-inline r="255"/>
-		</box>
+		<Mods value="wrap" value="center" />
+		<Text string="Hello World" size="48" align="center" x="100" y="100" />
+		<Box inline-color="0xFF0000FF" />
 	</TextBox>
 </main>

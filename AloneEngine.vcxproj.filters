@@ -123,8 +123,11 @@
     <ClInclude Include="lib\atl\util\Modifiers.hpp">
       <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
-    <ClInclude Include="lib\atl\game_tools\Core.hpp">
+    <ClInclude Include="lib\atl\game_tools\TileMap.hpp">
       <Filter>Library\AloneTemplateLibrary\GameTools</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\xtl\Matrix.hpp">
+      <Filter>Library\AloneTemplateLibrary\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -133,9 +136,6 @@
     </None>
     <None Include="res\settings\textures.toml">
       <Filter>Resources %28res%29\settings</Filter>
-    </None>
-    <None Include="res\ui\test.toml">
-      <Filter>Resources %28res%29\ui</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

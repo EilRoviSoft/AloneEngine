@@ -1,7 +1,6 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <atl/ui/TextBox.hpp>
 #include <atl/manager/UiRenderer.hpp>
-//#include <atl/game_tools/Core.hpp>
 
 sf::RenderWindow window(sf::VideoMode(800, 600), "Window!");
 namespace ui = atl::ui;

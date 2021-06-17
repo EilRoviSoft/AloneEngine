@@ -181,8 +181,8 @@
     <ClInclude Include="lib\atl\event_system\Listener.hpp" />
     <ClInclude Include="lib\atl\event_system\MethodListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
-    <ClInclude Include="lib\atl\game_tools\Core.hpp" />
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
+    <ClInclude Include="lib\atl\game_tools\TileMap.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
     <ClInclude Include="lib\atl\manager\UiRenderer.hpp" />
     <ClInclude Include="lib\atl\manager\TextureManager.hpp" />
@@ -197,11 +197,11 @@
     <ClInclude Include="lib\atl\util\Modifiers.hpp" />
     <ClInclude Include="lib\atl\util\property.hpp" />
     <ClInclude Include="lib\atl\util\readonly.hpp" />
+    <ClInclude Include="lib\xtl\Matrix.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\settings\config.toml" />
     <None Include="res\settings\textures.toml" />
-    <None Include="res\ui\test.toml" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\settings\ptserif.ttf" />

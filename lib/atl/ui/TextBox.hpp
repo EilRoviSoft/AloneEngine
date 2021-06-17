@@ -1,4 +1,7 @@
 #pragma once
+//std
+#include <string> //string
+
 //sf
 #include <SFML/Graphics.hpp> //RenderTarget, RenderStates, Text, RectangleShape
 #include <SFML/System.hpp> //String, Vector2f
@@ -10,8 +13,7 @@
 #include <atl/util/readonly.hpp> //util::readonly
 #include <atl/ui/Element.hpp> //ui::IElement
 #include <atl/util/Modifiers.hpp> //util::Modifiers
-#include <atl/util/Functions.hpp> //util::loadColor, util::loadVector2f, calcPositionByCenter
-//#include <atl/game_tools/Core.hpp> //core
+#include <atl/util/Functions.hpp> //util::loadColor, util::loadVector2f
 
 namespace atl::ui {
 	class TextBox : public IElement {
@@ -40,39 +42,34 @@ namespace atl::ui {
 			auto dataTextBox = _data.child("TextBox");
 			//text
 			{
-				if (!dataTextBox.child("text")) return false;
-				auto dataText = dataTextBox.child("text");
-
-				if (!dataText.attribute("string"))
-					return false;
+				if (!dataTextBox.child("Text")) return false;
+				auto dataText = dataTextBox.child("Text");
 
 				text->setString(sf::String(dataText.attribute("string").as_string()));
 				text->setCharacterSize(dataText.attribute("size").as_uint(30));
 
-				if (dataText.child("center")) {
+				if (dataText.attribute("align").as_string("top-left") == "center") {
 					auto bounds = text->getLocalBounds();
 
-					text->setPosition(abc::IUiElement::calcPositionByCenter(
-						util::loadVector2f(dataText.child("center")), sf::Vector2f(bounds.width, bounds.height)));
+					text->setPosition(dataText.attribute("x").as_float() - bounds.width / 2, dataText.attribute("y").as_float() - bounds.height / 2);
 				} else
-					text->setPosition(util::loadVector2f(dataText.child("position")));
+					//if align top-left or another, which now is unsupported
+					text->setPosition(dataText.attribute("x").as_float(), dataText.attribute("y").as_float());
 			}
 
 			//box
 			{
-				if (!dataTextBox.child("box")) return false;
-				auto dataBox = dataTextBox.child("box");
-				
-				box->setSize(util::loadVector2f(dataBox.child("size")));
-				box->setPosition(util::loadVector2f(dataBox.child("position")));
-				box->setFillColor(util::loadColor(dataBox.child("color-inline")));
-				box->setOutlineColor(util::loadColor(dataBox.child("color-outline")));
+				if (!dataTextBox.child("Box")) return false;
+				auto dataBox = dataTextBox.child("Box");
+
+				box->setSize(sf::Vector2f(dataBox.attribute("width").as_float(), dataBox.attribute("height").as_float()));
+				box->setPosition(dataBox.attribute("x").as_float(), dataBox.attribute("y").as_float());
+				box->setFillColor(sf::Color(dataBox.attribute("inline-color").as_ullong()));
+				box->setOutlineColor(sf::Color(dataBox.attribute("outline-color").as_ullong()));
 			}
 
-			if (dataTextBox.child("mods")) {
-				for (const auto& it : dataTextBox.child("mods"))
-					TextBox::mods.call(it.attribute("content").as_string(), *this);
-			}
+			for (const auto& it : dataTextBox.child("Mods").attributes())
+				TextBox::mods.call(it.as_string(), *this);
 
 			return true;
 		}

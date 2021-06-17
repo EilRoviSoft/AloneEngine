@@ -23,7 +23,7 @@ namespace atl::abc {
 	class IUiElement : public sf::Drawable, public XmlLoadable {
 		friend class manager::UiRenderer;
 	public:
-		static sf::Vector2f calcPositionByCenter(sf::Vector2f _position, sf::Vector2f _size) {
+		static sf::Vector2f getCenter(sf::Vector2f _position, sf::Vector2f _size) {
 			return sf::Vector2f(_position.x - _size.x / 2, _position.y - _size.y / 2);
 		}
 
