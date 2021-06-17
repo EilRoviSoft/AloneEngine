@@ -2,7 +2,7 @@
 #include <atl/ui/TextBox.hpp>
 #include <atl/manager/UiRenderer.hpp>
 
-sf::RenderWindow window(sf::VideoMode(800, 600), "Window!");
+sf::RenderWindow window(sf::VideoMode(800, 600), "Simple Window");
 namespace ui = atl::ui;
 using namespace atl::manager;
 
