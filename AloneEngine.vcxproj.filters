@@ -4,33 +4,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Library">
-      <UniqueIdentifier>{4bc186a1-3228-4498-bfc8-9f74d0a5b48d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary">
-      <UniqueIdentifier>{6695c0dd-648f-4d19-8b35-1ec1337acd76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\UserInterface">
-      <UniqueIdentifier>{93781ca1-3e65-4fd2-a06d-b533c2518b7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\AbstractBaseClasses">
-      <UniqueIdentifier>{7cd5d741-3d01-42e8-91fb-ac82e526ac75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\Manager">
-      <UniqueIdentifier>{6adc8348-b734-481f-a939-c211d7fb2b57}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\Util">
-      <UniqueIdentifier>{84ab16a8-f67c-4845-a8eb-a5d55a502f3f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\ThreadSafe">
-      <UniqueIdentifier>{bf59ac69-1cb8-45f0-9a7f-06b6e039abfd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\EventSystem">
-      <UniqueIdentifier>{64d8739c-3957-42bd-bab5-d63fee16412b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Library\AloneTemplateLibrary\GameTools">
-      <UniqueIdentifier>{d8951de2-8d18-449a-aeee-852f761e1f69}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resources %28res%29">
       <UniqueIdentifier>{63095b11-b365-4b2d-a5f5-f49ac84d7f3f}</UniqueIdentifier>
     </Filter>
@@ -43,91 +16,106 @@
     <Filter Include="Resources %28res%29\settings">
       <UniqueIdentifier>{c1b3ea69-c241-44ed-92d9-1290275b7a8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library %28lib%29">
+      <UniqueIdentifier>{4bc186a1-3228-4498-bfc8-9f74d0a5b48d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\ExtensibleTemplateLibrary %28xtl%29">
+      <UniqueIdentifier>{04bf920d-0fa0-46dd-83e8-68b69cbd7845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29">
+      <UniqueIdentifier>{6695c0dd-648f-4d19-8b35-1ec1337acd76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29">
+      <UniqueIdentifier>{7cd5d741-3d01-42e8-91fb-ac82e526ac75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\EventSystem %28event_system%29">
+      <UniqueIdentifier>{64d8739c-3957-42bd-bab5-d63fee16412b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29">
+      <UniqueIdentifier>{d8951de2-8d18-449a-aeee-852f761e1f69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager %28manager%29">
+      <UniqueIdentifier>{6adc8348-b734-481f-a939-c211d7fb2b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\ThreadSafe %28thread_safe%29">
+      <UniqueIdentifier>{bf59ac69-1cb8-45f0-9a7f-06b6e039abfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\UserInterface %28ui%29">
+      <UniqueIdentifier>{93781ca1-3e65-4fd2-a06d-b533c2518b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29">
+      <UniqueIdentifier>{84ab16a8-f67c-4845-a8eb-a5d55a502f3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\atl\manager\TextureManager.hpp">
-      <Filter>Library\AloneTemplateLibrary\Manager</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager %28manager%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\Loadable.hpp">
-      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\Runnable.hpp">
-      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\Manager.hpp">
-      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\RandomAccessible.hpp">
-      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\manager\AudioManager.hpp">
-      <Filter>Library\AloneTemplateLibrary\Manager</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager %28manager%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\util\Functions.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\manager\ThreadPool.hpp">
-      <Filter>Library\AloneTemplateLibrary\Manager</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager %28manager%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\event_system\Publisher.hpp">
-      <Filter>Library\AloneTemplateLibrary\EventSystem</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\EventSystem %28event_system%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\event_system\Event.hpp">
-      <Filter>Library\AloneTemplateLibrary\EventSystem</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\EventSystem %28event_system%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\event_system\Listener.hpp">
-      <Filter>Library\AloneTemplateLibrary\EventSystem</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\EventSystem %28event_system%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\event_system\MethodListener.hpp">
-      <Filter>Library\AloneTemplateLibrary\EventSystem</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\EventSystem %28event_system%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\event_system\FunctorListener.hpp">
-      <Filter>Library\AloneTemplateLibrary\EventSystem</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\EventSystem %28event_system%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\thread_safe\Queue.hpp">
-      <Filter>Library\AloneTemplateLibrary\ThreadSafe</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\util\Bundle.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\ThreadSafe %28thread_safe%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp">
-      <Filter>Library\AloneTemplateLibrary\GameTools</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\ui\TextBox.hpp">
-      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\util\property.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\util\fail.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\UserInterface %28ui%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\manager\UiRenderer.hpp">
-      <Filter>Library\AloneTemplateLibrary\Manager</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager %28manager%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\UiElement.hpp">
-      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\ui\Element.hpp">
-      <Filter>Library\AloneTemplateLibrary\UserInterface</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\UserInterface %28ui%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\Renderer.hpp">
-      <Filter>Library\AloneTemplateLibrary\AbstractBaseClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\util\Bucket.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\atl\util\readonly.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\util\Modifiers.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\game_tools\TileMap.hpp">
-      <Filter>Library\AloneTemplateLibrary\GameTools</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\xtl\Matrix.hpp">
-      <Filter>Library\AloneTemplateLibrary\Util</Filter>
+      <Filter>Library %28lib%29\ExtensibleTemplateLibrary %28xtl%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

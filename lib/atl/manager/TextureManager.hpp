@@ -16,19 +16,19 @@
 namespace atl::manager {
 	class TextureManager : public abc::IManager <sf::Texture> {
 	protected:
-		void loadItem(const std::string& _folder, const toml::value& _it) override {
-			size_t key = util::hash(_it.as_string());
+		void loadItem(const std::string& folder, const toml::value& data) override {
+			size_t key = util::hash(data.as_string());
 			m_content.insert({ key, sf::Texture() });
 
 			auto it = m_content.find(key);
 			if (it != m_content.end())
-				it->second.loadFromFile(_folder + _it.as_string().str);
+				it->second.loadFromFile(folder + data.as_string().str);
 		}
 
 	public:
 		TextureManager() {}
-		TextureManager(const std::string& _filename) {
-			loadFromFile(_filename);
+		TextureManager(const std::string& filename) {
+			loadFromFile(filename);
 		}
 	};
 }

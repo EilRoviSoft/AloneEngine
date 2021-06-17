@@ -5,6 +5,6 @@
 namespace atl::abc {
 	class IRenderer {
 	public:
-		virtual void render(sf::RenderWindow& _window) const = 0;
+		virtual void render(sf::RenderWindow& window) const = 0;
 	};
 }

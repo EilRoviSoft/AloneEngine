@@ -31,8 +31,8 @@ namespace atl::manager {
 				if (it.joinable()) it.detach();
 		}
 		//may take a lot of time, because of waiting the end of execution tasks
-		void stop(size_t _timeout = 500, bool _isWait = false) {
-			if (!_isWait) {
+		void stop(size_t timeout = 500, bool isWait = false) {
+			if (!isWait) {
 				if (m_isStop)
 					return;
 
@@ -51,7 +51,7 @@ namespace atl::manager {
 			}
 
 			while (m_aliveThreads != 0)
-				std::this_thread::sleep_for(std::chrono::milliseconds(_timeout));
+				std::this_thread::sleep_for(std::chrono::milliseconds(timeout));
 		}
 
 		size_t size() const {
@@ -61,8 +61,8 @@ namespace atl::manager {
 			return m_idleThreads;
 		}
 
-		std::thread& get(size_t _number) {
-			return m_workers.at(_number);
+		std::thread& get(size_t number) {
+			return m_workers.at(number);
 		}
 
 		void resize(size_t _countNow) {
@@ -98,9 +98,9 @@ namespace atl::manager {
 		}
 
 		template <class ReturnType, class... TParams>
-		std::future <ReturnType> request(std::function <ReturnType(TParams...)> _function, TParams... _args) {
+		std::future <ReturnType> request(std::function <ReturnType(TParams...)> function, TParams... args) {
 			auto pckg = std::shared_ptr <std::packaged_task <ReturnType()>>(
-				new std::packaged_task <ReturnType()>(std::bind(_function, _args...)));
+				new std::packaged_task <ReturnType()>(std::bind(function, args...)));
 			m_requests.push(Task([pckg]() {
 				(*pckg)();
 			}));

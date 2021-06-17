@@ -15,22 +15,22 @@ namespace atl::util {
 	template <class Type>
 	class Modifiers {
 	public:
-		Modifiers(const std::initializer_list <std::pair <std::string, WrapedTask <Type>>>& _init) {
-			for (const auto& it : _init)
+		Modifiers(const std::initializer_list <std::pair <std::string, WrapedTask <Type>>>& init) {
+			for (const auto& it : init)
 				m_tasks.insert({ hash(it.first), it.second });
 		}
 
-		void call(const std::string& _name, Type& _object) const {
-			auto key = hash(_name);
+		void call(const std::string& name, Type& object) const {
+			auto key = hash(name);
 
 			if (!m_tasks.contains(key))
 				return void();
 
-			m_tasks.at(key)(_object);
+			m_tasks.at(key)(object);
 		}
 
-		void bind(const std::string& _name, const WrapedTask <Type>& _func) {
-			m_tasks.insert({ hash(_name), _func });
+		void bind(const std::string& name, const WrapedTask <Type>& task) {
+			m_tasks.insert({ hash(name), task });
 		}
 
 	protected:

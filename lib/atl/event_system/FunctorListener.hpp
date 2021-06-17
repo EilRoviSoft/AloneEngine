@@ -1,7 +1,7 @@
 #pragma once
 //std
-#include <concepts> //std::invocable
-#include <memory> //std::shared_ptr
+#include <concepts> //invocable
+#include <memory> //shared_ptr
 
 //atl
 #include <atl/event_system/Listener.hpp> //event_system::IListener
@@ -9,18 +9,18 @@
 namespace atl::event_system {
 	template <class TInvocable, class ...TParams>
 	requires std::invocable <TInvocable>
-	class FunctorListener : IListener <TParams...> {
+	class FunctorListener : public IListener <TParams...> {
 	public:
-		FunctorListener(TInvocable& _invocable) : 
-		IListener <TParams...>(), m_invocable(_invocable) {}
+		FunctorListener(TInvocable& invocable) : 
+		IListener <TParams...>(), m_invocable(invocable) {}
 
-		void call(TParams... _params) final override {
-			return m_invocable(_params);
+		void call(TParams... params) final override {
+			return m_invocable(params);
 		}
 
-		bool equals(const IListener <TParams...>& _another) const final override {
-			const FunctorListener* upcasted = dynamic_cast <const FunctorListener*>(&_another);
-			return m_invocable == upcasted->m_invocable;
+		bool equals(const IListener <TParams...>& listener) const final override {
+			const FunctorListener* another = dynamic_cast <const FunctorListener*>(&listener);
+			return m_invocable == another->m_invocable;
 		}
 
 	protected:

@@ -9,15 +9,15 @@ namespace atl::event_system {
 		IEvent() : IPublisher <TParams...>() {}
 		~IEvent() {}
 
-		void operator()(TParams ..._params) {
-			return invoke(_params...);
+		void operator()(TParams ...params) {
+			return invoke(params...);
 		}
 
-		bool operator+=(Listener <TParams...>& _listener) {
-			return subscribe(_listener);
+		bool operator+=(Listener <TParams...>& listener) {
+			return subscribe(listener);
 		}
-		bool operator-=(Listener <TParams...>& _listener) {
-			return unsubscribe(_listener);
+		bool operator-=(Listener <TParams...>& listener) {
+			return unsubscribe(listener);
 		}
 	};
 }

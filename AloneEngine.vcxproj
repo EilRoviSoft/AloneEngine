@@ -190,13 +190,8 @@
     <ClInclude Include="lib\atl\thread_safe\Queue.hpp" />
     <ClInclude Include="lib\atl\ui\Element.hpp" />
     <ClInclude Include="lib\atl\ui\TextBox.hpp" />
-    <ClInclude Include="lib\atl\util\Bucket.hpp" />
-    <ClInclude Include="lib\atl\util\Bundle.hpp" />
-    <ClInclude Include="lib\atl\util\fail.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
     <ClInclude Include="lib\atl\util\Modifiers.hpp" />
-    <ClInclude Include="lib\atl\util\property.hpp" />
-    <ClInclude Include="lib\atl\util\readonly.hpp" />
     <ClInclude Include="lib\xtl\Matrix.hpp" />
   </ItemGroup>
   <ItemGroup>

@@ -7,10 +7,6 @@
 
 namespace atl::abc {
 	class IRunnable {
-	protected:
-		std::thread m_thread;
-		virtual void run() = 0;
-
 	public:
 		IRunnable() : m_thread(&IRunnable::run, this) {}
 
@@ -21,8 +17,12 @@ namespace atl::abc {
 			return this->m_thread.detach();
 		}
 
-		size_t id() const {
+		size_t getId() const {
 			return util::hash(this->m_thread.get_id());
 		}
+
+	protected:
+		std::thread m_thread;
+		virtual void run() = 0;
 	};
 }

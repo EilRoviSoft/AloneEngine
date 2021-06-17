@@ -6,23 +6,23 @@ namespace xtl {
 	template <class Type>
 	class Matrix {
 	public:
-		Matrix(size_t _columns = 0, size_t _rows = 0, const Type& _init = Type()) : 
-			m_storage(_columns * _rows, _init), m_columnSize(_columns) {}
+		Matrix(size_t columns = 0, size_t rows = 0, const Type& init = Type()) : 
+			m_storage(columns * rows, init), m_columnSize(columns) {}
 
-		Type& at(size_t _column, size_t _row) {
-			return m_storage.at(_column * m_columnSize + _row);
+		Type& at(size_t column, size_t row) {
+			return m_storage.at(column * m_columnSize + row);
 		}
-		const Type& at(size_t _column, size_t _row) const {
-			return m_storage.at(_column * m_columnSize + _row);
+		const Type& at(size_t column, size_t ow) const {
+			return m_storage.at(column * m_columnSize + ow);
 		}
 
-		void reserve(size_t _columns, size_t _rows) {
-			m_storage.reserve(_rows * _columns);
-			m_columnSize = _columns;
+		void reserve(size_t columns, size_t rows) {
+			m_storage.reserve(rows * columns);
+			m_columnSize = columns;
 		}
-		void resize(size_t _columns, size_t _rows) {
-			m_storage.resize(_rows * _columns);
-			m_columnSize = _columns;
+		void resize(size_t columns, size_t rows) {
+			m_storage.resize(rows * columns);
+			m_columnSize = columns;
 		}
 
 	protected:

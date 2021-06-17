@@ -10,7 +10,7 @@ namespace atl::game_tools {
 	//TODO: useless now
 	class GameWindow : public sf::RenderWindow {
 	public:
-		GameWindow(sf::Vector2u _size, const std::string& _title) : 
-			sf::RenderWindow(sf::VideoMode(_size.x, _size.y), _title) {}
+		GameWindow(sf::Vector2u size, const std::string& title) : 
+			sf::RenderWindow(sf::VideoMode(size.x, size.y), title) {}
 	};
 }

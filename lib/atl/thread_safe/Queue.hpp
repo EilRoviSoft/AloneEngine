@@ -9,14 +9,10 @@
 namespace atl::thread_safe {
 	template <class Type>
 	class Queue {
-	protected:
-		std::queue <Type, std::list <Type>> m_storage;
-		std::mutex m_lock;
-
 	public:
 		Queue() {}
-		Queue(std::initializer_list <Type>& _init) {
-			for (const auto& it : _init)
+		Queue(std::initializer_list <Type>& init) {
+			for (const auto& it : init)
 				m_storage.push(it);
 		}
 
@@ -35,12 +31,12 @@ namespace atl::thread_safe {
 
 		//modifying
 
-		void push(Type&& _what) {
+		void push(Type&& what) {
 			std::lock_guard lock(m_lock);
-			m_storage.push(_what);
+			m_storage.push(what);
 		}
-		void push(const Type& _what) {
-			m_storage.push(_what);
+		void push(const Type& what) {
+			m_storage.push(what);
 		}
 		//can cause exception
 		Type pop() {
@@ -71,5 +67,9 @@ namespace atl::thread_safe {
 			std::lock_guard lock(m_lock);
 			return m_storage.size();
 		}
+
+	protected:
+		std::queue <Type, std::list <Type>> m_storage;
+		std::mutex m_lock;
 	};
 }

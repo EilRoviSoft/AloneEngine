@@ -27,7 +27,7 @@ namespace atl::manager {
 			auto id = util::hash(_name);
 
 			return std::find_if(m_layers.begin(), m_layers.end(), [id](const ui::Element& _it) { 
-				return _it->get_id() == id;
+				return _it->getId() == id;
 			});
 		}
 

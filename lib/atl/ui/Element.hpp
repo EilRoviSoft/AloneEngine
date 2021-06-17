@@ -1,6 +1,6 @@
 #pragma once
 //atl
-#include <atl/abc/UiElement.hpp> //IUiElement
+#include <atl/abc/UiElement.hpp> //abc::IUiElement
 
 namespace atl::ui {
 	using IElement = abc::IUiElement;

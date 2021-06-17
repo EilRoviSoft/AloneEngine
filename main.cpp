@@ -11,11 +11,11 @@ int main() {
 
 	sf::Font font;
 	font.loadFromFile("res/settings/ptserif.ttf");
-	
+
 	ui::Element element(new ui::TextBox());
 	auto tb = std::dynamic_pointer_cast <ui::TextBox>(element);
 
-	tb->text->setFont(font);
+	tb->setFont(font);
 	tb->loadFromFile("res/ui/test.xml");
 
 	renderer.add(element);
@@ -27,7 +27,7 @@ int main() {
 				window.close();
 
 		window.clear();
-		
+
 		renderer.render(window);
 
 		window.display();

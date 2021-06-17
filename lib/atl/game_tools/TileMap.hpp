@@ -11,12 +11,12 @@ namespace atl::game {
 
 	class ITile {
 	public:
-		const id_t& get_id() const {
+		const id_t& getId() const {
 			return _id;
 		}
 
 	protected:
-		void set_id(id_t _value) {
+		void setId(id_t _value) {
 			_id = _value;
 		}
 
@@ -30,17 +30,17 @@ namespace atl::game {
 
 
 		void setTile(ITile* _value, size_t _x, size_t _y) {
-			m_storage.at(_y, _x).reset(_value);
+			_storage.at(_y, _x).reset(_value);
 		}
 
 		Tile& getTile(size_t _x, size_t _y) {
-			return m_storage.at(_y, _x);
+			return _storage.at(_y, _x);
 		}
 		const Tile& getTile(size_t _x, size_t _y) const {
-			return m_storage.at(_y, _x);
+			return _storage.at(_y, _x);
 		}
 
 	private:
-		xtl::Matrix <Tile> m_storage;
+		xtl::Matrix <Tile> _storage;
 	};
 }

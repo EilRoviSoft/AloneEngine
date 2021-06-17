@@ -23,30 +23,30 @@ namespace atl::abc {
 	class IUiElement : public sf::Drawable, public XmlLoadable {
 		friend class manager::UiRenderer;
 	public:
-		static sf::Vector2f getCenter(sf::Vector2f _position, sf::Vector2f _size) {
-			return sf::Vector2f(_position.x - _size.x / 2, _position.y - _size.y / 2);
+		static sf::Vector2f getCenter(sf::Vector2f position, sf::Vector2f size) {
+			return sf::Vector2f(position.x - size.x / 2, position.y - size.y / 2);
 		}
 
-		std::atomic <bool> isVisible = true;
+		std::atomic <bool> visible = true;
 
-		size_t get_id() const {
+		size_t getId() const {
 			return _id;
 		}
 
-		bool virtual load(const pugi::xml_node& _data) {
-			if (!_data.attribute("name"))
+		bool virtual load(const pugi::xml_node& data) {
+			if (!data.attribute("name"))
 				return false;
 
-			set_id(_data.attribute("name").as_string());
+			setId(data.attribute("name").as_string());
 
-			isVisible = _data.attribute("visible").as_bool(true);
+			visible = data.attribute("visible").as_bool(true);
 
 			return true;
 		}
 
 	protected:
-		void set_id(const std::string& _name) {
-			_id = util::hash(_name);
+		void setId(const std::string& another) {
+			_id = util::hash(another);
 		}
 
 	private:

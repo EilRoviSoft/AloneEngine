@@ -11,7 +11,7 @@ namespace atl::event_system {
 	public:
 		virtual void call(TParams... params) = 0;
 
-		virtual bool equals(const IListener&) const = 0;
+		virtual bool equals(const IListener& listener) const = 0;
 	};
 
 	template <class ...TParams>
