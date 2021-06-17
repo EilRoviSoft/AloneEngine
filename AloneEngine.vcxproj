@@ -140,8 +140,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Libs\Cpp\SFML-2.5.1-x64\lib;C:\Libs\Cpp\DiscordGameSdk\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;discord_game_sdk.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Libs\Cpp\SFML-2.5.1-x64\lib;C:\Libs\Cpp\pugixml-master\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;pugixml-x86-64-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -182,6 +182,7 @@
     <ClInclude Include="lib\atl\event_system\MethodListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
+    <ClInclude Include="lib\atl\game_tools\TileMap.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
     <ClInclude Include="lib\atl\manager\UiRenderer.hpp" />
     <ClInclude Include="lib\atl\manager\TextureManager.hpp" />
@@ -193,8 +194,23 @@
     <ClInclude Include="lib\atl\util\Bundle.hpp" />
     <ClInclude Include="lib\atl\util\fail.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
+    <ClInclude Include="lib\atl\util\Modifiers.hpp" />
     <ClInclude Include="lib\atl\util\property.hpp" />
     <ClInclude Include="lib\atl\util\readonly.hpp" />
+    <ClInclude Include="lib\xtl\Matrix.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\settings\config.toml" />
+    <None Include="res\settings\textures.toml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\settings\ptserif.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\madoka magica.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="res\ui\test.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

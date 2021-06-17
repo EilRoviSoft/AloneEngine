@@ -2,7 +2,7 @@
 #include <atl/ui/TextBox.hpp>
 #include <atl/manager/UiRenderer.hpp>
 
-sf::RenderWindow window(sf::VideoMode(800, 600), "Window!");
+sf::RenderWindow window(sf::VideoMode(800, 600), "Simple Window");
 namespace ui = atl::ui;
 using namespace atl::manager;
 
@@ -15,13 +15,8 @@ int main() {
 	ui::Element element(new ui::TextBox());
 	auto tb = std::dynamic_pointer_cast <ui::TextBox>(element);
 
-	tb->box->setFillColor(sf::Color::Blue);
 	tb->text->setFont(font);
-	tb->text->setCharacterSize(32);
-	tb->text->setString("Shen0 is gay!");
-	tb->text->setPosition(100, 100);
-
-	tb->wrapText();
+	tb->loadFromFile("res/ui/test.xml");
 
 	renderer.add(element);
 
