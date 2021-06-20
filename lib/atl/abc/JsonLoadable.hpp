@@ -1,0 +1,18 @@
+#pragma once
+//std
+#include <fstream> //ifstream, istream
+
+//nlohmann (json)
+#include <nlohmann/json.hpp> //json
+
+//atl
+#include <atl/abc/Loadable.hpp> //abc::ILoadable
+
+namespace atl::abc {
+	class JsonLoadable : public ILoadable <nlohmann::json> {
+	public:
+		bool loadFromStream(std::istream& in) override final {
+			return load(nlohmann::json::parse(in));
+		}
+	};
+}

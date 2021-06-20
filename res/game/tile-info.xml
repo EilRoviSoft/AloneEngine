@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<main folder="res/textures/">
-	<block_0 format="png" variants="4" type="IBlock" />
+<main>
+	<zero-block image="block_0.png" variants="4" type="ITileInfo" display="zero-block" />
 </main>

@@ -4,8 +4,7 @@
 #include <unordered_map> //unoredered_map
 
 //atl
-#define TOML_LOADABLE
-#include <atl/abc/Loadable.hpp> //abc::TomlLoadable
+#include <atl/abc/TomlLoadable.hpp> //TomlLoadable, toml::value
 #include <atl/util/Functions.hpp> //util::hash
 
 namespace atl::abc {

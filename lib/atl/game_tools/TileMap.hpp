@@ -6,16 +6,15 @@
 //std
 #include <cstdint> //uint8_t
 #include <memory> //shared_ptr
-#include <unordered_map> //unordered_map
-
-//pugi
-#include <pugixml/pugixml.hpp> //xml_node
+#include <map> //map
+#include <string> //string
 
 //atl
 #define XML_LOADABLE
-#include <atl/abc/Loadable.hpp> //abc::XmlLoadable, abc::ILoadable
-#include <atl/manager/TextureManager.hpp> //manager::TextureManager
+#include <atl/abc/XmlLoadable.hpp> //abc::XmlLoadable, pugi::xml_node
+#include <atl/abc/TomlLoadable.hpp> //abc::TomlLoadable, toml::value
 #include <atl/util/Functions.hpp> //util::hash
+#include <atl/game_tools/Core.hpp> //core
 
 //xtl
 #include <xtl/Matrix.hpp> //Matrix
@@ -31,20 +30,31 @@ namespace atl::game {
 	public:
 		ITileInfo(const sf::Texture& texture) : _texture(texture) {}
 
+		virtual bool load(const pugi::xml_node& data) override {
+			_max = data.attribute("variants").as_uint(1);
+			_name = data.attribute("display").as_string();
+
+			return true;
+		}
+
 	private:
 		const sf::Texture& _texture;
-		id_t max;
+		id_t _max;
+		std::string _name;
 	};
 	using TileInfo = std::shared_ptr <ITileInfo>;
 
 	struct TileInfoFactory {
-		static TileInfo create(const pugi::xml_node& data) throw(std::exception) {
-			auto type = data.attribute("type").as_string();
+		static TileInfo create(const pugi::xml_node& data, const sf::Texture& texture) {
+			std::string type = data.attribute("type").as_string();
+			auto result = TileInfo(nullptr);
 
-			if (type == "ITileInfo")
-				return TileInfo(new ITileInfo());
+			if (type == "ITileInfo") {
+				result.reset(new ITileInfo(texture));
+				result->load(data);
+			}
 
-			return TileInfo(nullptr);
+			return result;
 		}
 	};
 
@@ -71,7 +81,7 @@ namespace atl::game {
 			return _cluster;
 		}
 		void setCluster(id_t cluster) {
-			if (cluster < _info->max)
+			if (cluster < _info->_max)
 				_cluster = cluster;
 			else
 				_cluster = 0;
@@ -82,9 +92,9 @@ namespace atl::game {
 		id_t _cluster;
 	};
 
-	class TileMap : public sf::Drawable {
+	class TileMap : public sf::Drawable, public abc::TomlLoadable {
 	public:
-		TileMap(const manager::TextureManager& textures) : _textures(textures) {}
+		TileMap() {}
 
 		void setTile(Tile value, id_t infoId, size_t x, size_t y) {
 			value._info = _info[infoId];
@@ -98,7 +108,15 @@ namespace atl::game {
 			return _storage.at(x, y);
 		}
 
+		virtual bool load(const toml::value& data) override {
+			if (!_info.loadFromFile(data.at("tile-info").as_string()))
+				return false;
+
+			return true;
+		}
+
 	protected:
+		//TODO: predraw
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
 			sf::Sprite atlas;
 
@@ -123,22 +141,18 @@ namespace atl::game {
 			}
 
 			virtual bool load(const pugi::xml_node& data) override {
-				_content.reserve(data.attribute("count").as_ullong());
-				if (_content.size())
-					return false;
-
 				for (const auto& it : data) {
-					_content.insert({ util::hash(it.name()),  });
+					const auto& texture = atl::core.textures.at(it.attribute("image").as_string());
+					_content.insert({ util::hash(it.name()), TileInfoFactory::create(it, texture) });
 				}
 
 				return true;
 			}
 
 		private:
-			std::unordered_map <size_t, TileInfo> _content;
+			std::map <size_t, TileInfo> _content;
 		} _info;
 
 		xtl::Matrix <Tile> _storage;
-		const manager::TextureManager& _textures;
 	};
 }

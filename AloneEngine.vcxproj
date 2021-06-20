@@ -170,17 +170,21 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\atl\abc\JsonLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\Loadable.hpp" />
     <ClInclude Include="lib\atl\abc\Manager.hpp" />
     <ClInclude Include="lib\atl\abc\RandomAccessible.hpp" />
     <ClInclude Include="lib\atl\abc\Renderer.hpp" />
     <ClInclude Include="lib\atl\abc\Runnable.hpp" />
+    <ClInclude Include="lib\atl\abc\TomlLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\UiElement.hpp" />
+    <ClInclude Include="lib\atl\abc\XmlLoadable.hpp" />
     <ClInclude Include="lib\atl\event_system\Event.hpp" />
     <ClInclude Include="lib\atl\event_system\FunctorListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Listener.hpp" />
     <ClInclude Include="lib\atl\event_system\MethodListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
+    <ClInclude Include="lib\atl\game_tools\Core.hpp" />
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
     <ClInclude Include="lib\atl\game_tools\TileMap.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />

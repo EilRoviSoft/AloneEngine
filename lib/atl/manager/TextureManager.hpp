@@ -17,7 +17,7 @@ namespace atl::manager {
 	class TextureManager : public abc::IManager <sf::Texture> {
 	protected:
 		void loadItem(const std::string& folder, const toml::value& data) override {
-			size_t key = util::hash(data.as_string());
+			size_t key = util::hash <std::string>(data.as_string());
 			m_content.insert({ key, sf::Texture() });
 
 			auto it = m_content.find(key);

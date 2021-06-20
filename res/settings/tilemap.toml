@@ -1,2 +1,1 @@
-tile-info = "res/game/tile-info.toml"
-#map = "res/game/map"
+tile-info = "res/game/tile-info.xml"
