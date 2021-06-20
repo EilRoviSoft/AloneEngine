@@ -45,6 +45,8 @@ namespace atl::abc {
 		}
 
 	protected:
+		bool m_onUpdate = true;
+
 		void setId(const std::string& another) {
 			_id = util::hash(another);
 		}

@@ -20,7 +20,10 @@ namespace atl::manager {
 
 		void render(sf::RenderWindow& _window) const final override {
 			for (const auto& it : m_layers)
-				_window.draw(*it);
+				if (it->m_onUpdate) {
+					_window.draw(*it);
+					it->m_onUpdate = false;
+				}
 		}
 
 		Iterator findByName(const std::string& _name) const {

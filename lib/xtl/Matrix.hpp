@@ -7,26 +7,33 @@ namespace xtl {
 	class Matrix {
 	public:
 		Matrix(size_t columns = 0, size_t rows = 0, const Type& init = Type()) : 
-			m_storage(columns * rows, init), m_columnSize(columns) {}
+			_storage(columns * rows, init), _columns(columns), _rows(rows) {}
 
 		Type& at(size_t column, size_t row) {
-			return m_storage.at(column * m_columnSize + row);
+			return _storage.at(column * _columns + row);
 		}
-		const Type& at(size_t column, size_t ow) const {
-			return m_storage.at(column * m_columnSize + ow);
+		const Type& at(size_t column, size_t row) const {
+			return _storage.at(column * _columns + row);
 		}
 
 		void reserve(size_t columns, size_t rows) {
-			m_storage.reserve(rows * columns);
-			m_columnSize = columns;
+			_storage.reserve(rows * columns);
+			_columns = columns;
 		}
 		void resize(size_t columns, size_t rows) {
-			m_storage.resize(rows * columns);
-			m_columnSize = columns;
+			_storage.resize(rows * columns);
+			_columns = columns;
 		}
 
-	protected:
-		std::vector <Type> m_storage;
-		size_t m_columnSize;
+		size_t getColumns() const {
+			return _columns;
+		}
+		size_t getRows() const {
+			return _rows;
+		}
+
+	private:
+		std::vector <Type> _storage;
+		size_t _columns, _rows;
 	};
 }

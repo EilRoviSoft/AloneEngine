@@ -20,16 +20,15 @@ int main() {
 
 	renderer.add(element);
 
+	window.clear();
+
 	while (window.isOpen()) {
 		sf::Event event;
 		while (window.pollEvent(event))
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-		window.clear();
-
 		renderer.render(window);
-
 		window.display();
 	}
 

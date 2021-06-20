@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main folder="res/textures/">
+	<block_0 format="png" variants="4" type="IBlock" />
+</main>

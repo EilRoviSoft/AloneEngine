@@ -192,6 +192,7 @@
     <ClInclude Include="lib\atl\ui\TextBox.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
     <ClInclude Include="lib\atl\util\Modifiers.hpp" />
+    <ClInclude Include="lib\atl\util\RenderRegion.hpp" />
     <ClInclude Include="lib\xtl\Matrix.hpp" />
   </ItemGroup>
   <ItemGroup>
