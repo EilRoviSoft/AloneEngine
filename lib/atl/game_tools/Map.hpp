@@ -10,19 +10,23 @@
 #include <atl/game_tools/Tile.hpp> //game_tools::Tile
 //#include <atl/abc/FlatLoadable.hpp> //abc::FlatLoadable
 #include <atl/abc/Loadable.hpp> //abc::ILoadable
+#include <atl/util/FlatLoader.hpp> //util::FlatLoader
 
 namespace atl::game_tools {
-	class Map : public util::Matrix <Tile>, abc::ILoadable <std::vector <Tile>&&> {
+	class Map : public util::Matrix <Tile>, public abc::ILoadable <std::vector <id_t>&&> {
 	public:
 		Map() {}
 
-		//TODO
 		bool loadFromStream(std::istream& in) override {
-			return load(std::vector <Tile>());
+			return load(util::FlatLoader::load <uint16_t, uint8_t>(in));
 		}
 
-		//TODO
-		bool load(std::vector <Tile>&& data) override {
+		bool load(std::vector <id_t>&& data) override {
+			resize(data[0], data[1]);
+
+			for (size_t i = 0; i != size(); i++)
+				at(i) = data[i + 2];
+			
 			return true;
 		}
 

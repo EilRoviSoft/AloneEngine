@@ -31,8 +31,18 @@ namespace atl::util {
 		size_t cols() const {
 			return _cols;
 		}
+		size_t size() const {
+			return _rows * _cols;
+		}
 
 	protected:
+		Type& at(size_t abs) {
+			return _data.at(abs);
+		}
+		const Type& at(size_t abs) const {
+			return _data.at(abs);
+		}
+
 		/*void from(const std::vector <Type>& vector) {
 			_data = vector;
 		}

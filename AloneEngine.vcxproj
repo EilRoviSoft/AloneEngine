@@ -197,6 +197,7 @@
     <ClInclude Include="lib\atl\thread_safe\Queue.hpp" />
     <ClInclude Include="lib\atl\ui\Element.hpp" />
     <ClInclude Include="lib\atl\ui\TextBox.hpp" />
+    <ClInclude Include="lib\atl\util\FlatLoader.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
     <ClInclude Include="lib\atl\util\Matrix.hpp" />
     <ClInclude Include="lib\atl\util\Modifiers.hpp" />

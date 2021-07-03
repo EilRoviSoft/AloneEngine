@@ -4,11 +4,12 @@
 using namespace atl;
 
 int main() {
-	std::ofstream fout("res/a0a0.wld");
+	std::ifstream fin("res/a0a0.wld");
 
-	game_tools::Map::generate(fout, 10, 10);
+	game_tools::Map map;
+	map.loadFromStream(fin);
 
-	fout.close();
+	fin.close();
 
 	return 0;
 }

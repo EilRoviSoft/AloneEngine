@@ -28,9 +28,6 @@
     <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\EventSystem %28event_system%29">
       <UniqueIdentifier>{64d8739c-3957-42bd-bab5-d63fee16412b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29">
-      <UniqueIdentifier>{d8951de2-8d18-449a-aeee-852f761e1f69}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager %28manager%29">
       <UniqueIdentifier>{6adc8348-b734-481f-a939-c211d7fb2b57}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,9 @@
     </Filter>
     <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29">
       <UniqueIdentifier>{84ab16a8-f67c-4845-a8eb-a5d55a502f3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game_tools%29">
+      <UniqueIdentifier>{d8951de2-8d18-449a-aeee-852f761e1f69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +88,7 @@
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\ThreadSafe %28thread_safe%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp">
-      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game_tools%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\ui\TextBox.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\UserInterface %28ui%29</Filter>
@@ -109,13 +109,13 @@
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\game_tools\TileMap.hpp">
-      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game_tools%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\util\RenderRegion.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\game_tools\Core.hpp">
-      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game_tools%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\TomlLoadable.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
@@ -130,13 +130,16 @@
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\game_tools\Map.hpp">
-      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game_tools%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\game_tools\Tile.hpp">
-      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game_tools%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\FlatLoadable.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\util\FlatLoader.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

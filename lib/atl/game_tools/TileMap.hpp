@@ -34,7 +34,7 @@ namespace atl::game_tools {
 		}
 
 		virtual bool load(const toml::value& data) override {
-			if (!_info.loadFromFile(data.at("tile-info").as_string()))
+			if (!_info.loadFromFile(data.at("tile-info").as_string()) || !_storage.loadFromFile(data.at("saves-folder").as_string().str + "main.wld"))
 				return false;
 
 			return true;
