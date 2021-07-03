@@ -4,10 +4,11 @@
 using namespace atl;
 
 int main() {
-	core.textures.loadFromFile("res/settings/textures.toml");
+	std::ofstream fout("res/a0a0.wld");
 
-	game::TileMap tm;
-	tm.loadFromFile("res/settings/tilemap.toml");
+	game_tools::Map::generate(fout, 10, 10);
+
+	fout.close();
 
 	return 0;
 }

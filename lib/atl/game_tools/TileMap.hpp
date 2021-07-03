@@ -1,7 +1,6 @@
 #pragma once
 //sf
-#include <SFML/Graphics.hpp> //Drawable, Sprite, Texture
-#include <SFML/System.hpp> //Vector2i, IntRect
+#include <SFML/Graphics.hpp> //Drawable, Sprite, RenderTarget, RenderStates
 
 //std
 #include <cstdint> //uint8_t
@@ -10,88 +9,14 @@
 #include <string> //string
 
 //atl
-#define XML_LOADABLE
 #include <atl/abc/XmlLoadable.hpp> //abc::XmlLoadable, pugi::xml_node
 #include <atl/abc/TomlLoadable.hpp> //abc::TomlLoadable, toml::value
 #include <atl/util/Functions.hpp> //util::hash
 #include <atl/game_tools/Core.hpp> //core
+#include <atl/game_tools/Tile.hpp> //game_tools::Tile, game_tools::ITileInfo, game_tools::TileInfoFactory
+#include <atl/game_tools/Map.hpp> //util::Map
 
-//xtl
-#include <xtl/Matrix.hpp> //Matrix
-
-namespace atl::game {
-	using id_t = uint8_t;
-	const sf::Vector2i tile(16, 16), offset(2, 2);
-	const id_t inRow = 28;
-
-	class ITileInfo : public abc::XmlLoadable {
-		friend class TileMap;
-		friend class Tile;
-	public:
-		ITileInfo(const sf::Texture& texture) : _texture(texture) {}
-
-		virtual bool load(const pugi::xml_node& data) override {
-			_max = data.attribute("variants").as_uint(1);
-			_name = data.attribute("display").as_string();
-
-			return true;
-		}
-
-	private:
-		const sf::Texture& _texture;
-		id_t _max;
-		std::string _name;
-	};
-	using TileInfo = std::shared_ptr <ITileInfo>;
-
-	struct TileInfoFactory {
-		static TileInfo create(const pugi::xml_node& data, const sf::Texture& texture) {
-			std::string type = data.attribute("type").as_string();
-			auto result = TileInfo(nullptr);
-
-			if (type == "ITileInfo") {
-				result.reset(new ITileInfo(texture));
-				result->load(data);
-			}
-
-			return result;
-		}
-	};
-
-	class Tile {
-		friend class TileMap;
-	public:
-		const ITileInfo* operator->() const {
-			return _info.get();
-		}
-		
-		const id_t& getCluster() const {
-			return _cluster;
-		}
-
-		sf::IntRect getRegion() const {
-			auto row = (id_t) _cluster % inRow;
-			auto column = (id_t) _cluster / inRow;
-
-			return sf::IntRect(offset.x * (row + 1) + tile.x * row, offset.y * (row + 1) + tile.y * row, tile.x, tile.y);
-		}
-
-	private:
-		id_t& getCluster() {
-			return _cluster;
-		}
-		void setCluster(id_t cluster) {
-			if (cluster < _info->_max)
-				_cluster = cluster;
-			else
-				_cluster = 0;
-		}
-
-		TileInfo _info;
-		//28 in row
-		id_t _cluster;
-	};
-
+namespace atl::game_tools {
 	class TileMap : public sf::Drawable, public abc::TomlLoadable {
 	public:
 		TileMap() {}
@@ -120,8 +45,8 @@ namespace atl::game {
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
 			sf::Sprite atlas;
 
-			for (size_t i = 0; i != _storage.getColumns(); i++)
-				for (size_t j = 0; j != _storage.getRows(); j++) {
+			for (size_t i = 0; i != _storage.cols(); i++)
+				for (size_t j = 0; j != _storage.rows(); j++) {
 					atlas.setTexture(_storage.at(i, j)->_texture);
 					atlas.setTextureRect(_storage.at(i, j).getRegion());
 					atlas.setPosition(i * tile.x, j * tile.y);
@@ -143,7 +68,7 @@ namespace atl::game {
 			virtual bool load(const pugi::xml_node& data) override {
 				for (const auto& it : data) {
 					const auto& texture = atl::core.textures.at(it.attribute("image").as_string());
-					_content.insert({ util::hash(it.name()), TileInfoFactory::create(it, texture) });
+					_content.insert({ it.attribute("id").as_ullong(), TileInfoFactory::create(it, texture) });
 				}
 
 				return true;
@@ -153,6 +78,6 @@ namespace atl::game {
 			std::map <size_t, TileInfo> _content;
 		} _info;
 
-		xtl::Matrix <Tile> _storage;
+		Map _storage;
 	};
 }

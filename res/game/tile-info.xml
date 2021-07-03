@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <main>
-	<zero-block image="block_0.png" variants="4" type="ITileInfo" display="zero-block" />
+	<ITileInfo image="block_0.png" variants="4" display="basic block" id="1" />
 </main>

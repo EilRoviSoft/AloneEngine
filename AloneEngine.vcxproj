@@ -170,6 +170,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\atl\abc\FlatLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\JsonLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\Loadable.hpp" />
     <ClInclude Include="lib\atl\abc\Manager.hpp" />
@@ -186,6 +187,8 @@
     <ClInclude Include="lib\atl\event_system\Publisher.hpp" />
     <ClInclude Include="lib\atl\game_tools\Core.hpp" />
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
+    <ClInclude Include="lib\atl\game_tools\Map.hpp" />
+    <ClInclude Include="lib\atl\game_tools\Tile.hpp" />
     <ClInclude Include="lib\atl\game_tools\TileMap.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
     <ClInclude Include="lib\atl\manager\UiRenderer.hpp" />
@@ -195,9 +198,9 @@
     <ClInclude Include="lib\atl\ui\Element.hpp" />
     <ClInclude Include="lib\atl\ui\TextBox.hpp" />
     <ClInclude Include="lib\atl\util\Functions.hpp" />
+    <ClInclude Include="lib\atl\util\Matrix.hpp" />
     <ClInclude Include="lib\atl\util\Modifiers.hpp" />
     <ClInclude Include="lib\atl\util\RenderRegion.hpp" />
-    <ClInclude Include="lib\xtl\Matrix.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\settings\config.toml" />

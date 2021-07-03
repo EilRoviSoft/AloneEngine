@@ -9,7 +9,7 @@
 #include <atl/abc/Loadable.hpp> //abc::ILoadable
 
 namespace atl::abc {
-	class XmlLoadable : public ILoadable <pugi::xml_node> {
+	class XmlLoadable : public ILoadable <const pugi::xml_node&> {
 	public:
 		bool loadFromStream(std::istream& in) override final {
 			pugi::xml_document document;

@@ -19,9 +19,6 @@
     <Filter Include="Library %28lib%29">
       <UniqueIdentifier>{4bc186a1-3228-4498-bfc8-9f74d0a5b48d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Library %28lib%29\ExtensibleTemplateLibrary %28xtl%29">
-      <UniqueIdentifier>{04bf920d-0fa0-46dd-83e8-68b69cbd7845}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29">
       <UniqueIdentifier>{6695c0dd-648f-4d19-8b35-1ec1337acd76}</UniqueIdentifier>
     </Filter>
@@ -114,9 +111,6 @@
     <ClInclude Include="lib\atl\game_tools\TileMap.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
     </ClInclude>
-    <ClInclude Include="lib\xtl\Matrix.hpp">
-      <Filter>Library %28lib%29\ExtensibleTemplateLibrary %28xtl%29</Filter>
-    </ClInclude>
     <ClInclude Include="lib\atl\util\RenderRegion.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
     </ClInclude>
@@ -130,6 +124,18 @@
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\abc\JsonLoadable.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\util\Matrix.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util %28util%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\game_tools\Map.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\game_tools\Tile.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools %28game%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\abc\FlatLoadable.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses %28abc%29</Filter>
     </ClInclude>
   </ItemGroup>

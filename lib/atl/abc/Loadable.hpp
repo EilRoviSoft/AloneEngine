@@ -18,6 +18,6 @@ namespace atl::abc {
 		}
 		virtual bool loadFromStream(std::istream& in) = 0;
 		//You have to override it yourself
-		virtual bool load(const UserDataType& data) = 0;
+		virtual bool load(UserDataType data) = 0;
 	};
 }

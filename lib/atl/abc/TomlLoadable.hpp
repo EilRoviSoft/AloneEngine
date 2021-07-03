@@ -9,7 +9,7 @@
 #include <atl/abc/Loadable.hpp> //abc::ILoadable
 
 namespace atl::abc {
-	class TomlLoadable : public ILoadable <toml::value> {
+	class TomlLoadable : public ILoadable <const toml::value&> {
 	public:
 		//it's crutch, because of Windows weird reading toml file
 		bool loadFromFile(const std::string& filename) override final {
