@@ -1,8 +1,8 @@
 #pragma once
 //atl
-#include <atl/event_system/Publisher.hpp> //event_system::IPublisher
+#include <atl/event_system/Publisher.hpp> //IPublisher
 
-namespace atl::event_system {
+namespace atl {
 	template <class ...TParams>
 	class IEvent : protected IPublisher <TParams...> {
 	public:

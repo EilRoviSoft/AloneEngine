@@ -9,15 +9,16 @@
 #include <string> //string
 
 //atl
-#include <atl/abc/XmlLoadable.hpp> //abc::XmlLoadable, pugi::xml_node
-#include <atl/abc/TomlLoadable.hpp> //abc::TomlLoadable, toml::value
-#include <atl/util/Functions.hpp> //util::hash
+#include <atl/abc/XmlLoadable.hpp> //XmlLoadable, pugi::xml_node
+#include <atl/abc/TomlLoadable.hpp> //TomlLoadable, toml::value
+#include <atl/util/Functions.hpp> //hash
 #include <atl/game_tools/Core.hpp> //core
-#include <atl/game_tools/Tile.hpp> //game_tools::Tile, game_tools::ITileInfo, game_tools::TileInfoFactory
-#include <atl/game_tools/Map.hpp> //util::Map
+#include <atl/game_tools/Tile.hpp> //Tile, ITileInfo, TileInfoFactory
+#include <atl/game_tools/Map.hpp> //Map
 
-namespace atl::game_tools {
-	class TileMap : public sf::Drawable, public abc::TomlLoadable {
+namespace atl {
+	//TODO: atl::Drawable inherit
+	class TileMap : public sf::Drawable, public TomlLoadable {
 	public:
 		TileMap() {}
 
@@ -56,7 +57,7 @@ namespace atl::game_tools {
 		}
 
 	private:
-		class : public abc::XmlLoadable {
+		class : public XmlLoadable {
 		public:
 			TileInfo& operator[](size_t id) {
 				return _content.at(id);

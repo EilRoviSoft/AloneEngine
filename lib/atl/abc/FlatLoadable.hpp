@@ -4,9 +4,9 @@
 #include <istream> //istream
 
 //atl
-#include <atl/abc/Loadable.hpp> //abc::ILoadable
+#include <atl/abc/Loadable.hpp> //ILoadable
 
-namespace atl::abc {
+namespace atl {
 	/*template <class Type>
 	using FlatIterator = std::vector <Type>::iterator;
 

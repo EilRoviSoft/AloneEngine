@@ -9,14 +9,14 @@
 #include <string> //string
 
 //atl
-#include <atl/abc/XmlLoadable.hpp> //abc::XmlLoadable, pugi::xml_node
+#include <atl/abc/XmlLoadable.hpp> //XmlLoadable, pugi::xml_node
 
-namespace atl::game_tools {
+namespace atl {
 	using id_t = uint8_t;
 	const sf::Vector2i tile(16, 16), offset(2, 2);
 	const id_t inRow = 28;
 
-	class ITileInfo : public abc::XmlLoadable {
+	class ITileInfo : public XmlLoadable {
 		friend class TileMap;
 		friend class Tile;
 	public:

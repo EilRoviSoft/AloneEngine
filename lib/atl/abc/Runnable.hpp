@@ -3,9 +3,9 @@
 #include <thread> //thread
 
 //atl
-#include <atl/util/Functions.hpp> //util::hash
+#include <atl/util/Functions.hpp> //hash
 
-namespace atl::abc {
+namespace atl {
 	class IRunnable {
 	public:
 		IRunnable() : m_thread(&IRunnable::run, this) {}
@@ -18,7 +18,7 @@ namespace atl::abc {
 		}
 
 		size_t getId() const {
-			return util::hash(this->m_thread.get_id());
+			return hash(this->m_thread.get_id());
 		}
 
 	protected:

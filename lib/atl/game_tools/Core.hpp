@@ -3,12 +3,12 @@
 #include <SFML/Graphics.hpp> //Font
 
 //atl
-#include <atl/manager/TextureManager.hpp> //manager::TextureManager
+#include <atl/manager/TextureManager.hpp> //TextureManager
 
 namespace atl {
 	struct Core {
 		sf::Font font;
-		manager::TextureManager textures;
+		TextureManager textures;
 	};
 
 	static Core core;

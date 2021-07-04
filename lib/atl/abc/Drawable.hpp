@@ -4,7 +4,7 @@
 #include <SFML/Graphics/RenderTarget.hpp> //RenderTarget
 #include <SFML/Graphics/RenderStates.hpp> //RenderStates
 
-namespace atl::abc {
+namespace atl {
 	class IDrawable : public sf::Drawable {
 		//friend class GameWindow
 	protected:

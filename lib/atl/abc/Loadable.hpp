@@ -3,7 +3,7 @@
 #include <string> //string
 #include <fstream> //ifstream, istream
 
-namespace atl::abc {
+namespace atl {
 	template <class UserDataType>
 	class ILoadable {
 	public:

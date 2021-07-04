@@ -12,16 +12,12 @@
 
 //atl
 #define XML_LOADABLE
-#include <atl/abc/Loadable.hpp> //abc::XmlLoadable
-#include <atl/util/Functions.hpp> //util::hash
+#include <atl/abc/Loadable.hpp> //XmlLoadable
+#include <atl/util/Functions.hpp> //hash
 
-namespace atl::manager {
-	class UiRenderer;
-}
-
-namespace atl::abc {
+namespace atl {
 	class IUiElement : public sf::Drawable, public XmlLoadable {
-		friend class manager::UiRenderer;
+		friend class UiRenderer;
 	public:
 		static sf::Vector2f getCenter(sf::Vector2f position, sf::Vector2f size) {
 			return sf::Vector2f(position.x - size.x / 2, position.y - size.y / 2);

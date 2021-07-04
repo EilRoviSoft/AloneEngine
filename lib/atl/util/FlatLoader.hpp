@@ -3,7 +3,7 @@
 #include <vector> //vector
 #include <istream> //istream
 
-namespace atl::util {
+namespace atl {
 	struct FlatLoader {
 		template <class UnitType, class ResultType>
 		static std::vector <ResultType> load(std::istream& in) {

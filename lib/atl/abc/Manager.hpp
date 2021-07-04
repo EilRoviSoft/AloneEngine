@@ -5,11 +5,11 @@
 
 //atl
 #include <atl/abc/TomlLoadable.hpp> //TomlLoadable, toml::value
-#include <atl/util/Functions.hpp> //util::hash
+#include <atl/util/Functions.hpp> //hash
 
-namespace atl::abc {
+namespace atl {
 	template <class ValueType>
-	class IManager : public abc::TomlLoadable {
+	class IManager : public TomlLoadable {
 	public:
 		bool load(const toml::value& data) override {
 			if (!data.contains("path") || !data.contains("files"))
@@ -24,10 +24,10 @@ namespace atl::abc {
 		}
 
 		ValueType& at(const std::string& key) {
-			return m_content.at(util::hash(key));
+			return m_content.at(hash(key));
 		}
 		const ValueType& at(const std::string& key) const {
-			return m_content.at(util::hash(key));
+			return m_content.at(hash(key));
 		}
 
 	protected:

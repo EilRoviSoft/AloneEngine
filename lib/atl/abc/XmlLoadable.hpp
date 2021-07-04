@@ -6,9 +6,9 @@
 #include <pugixml/pugixml.hpp> //xml_document, xml_node
 
 //atl
-#include <atl/abc/Loadable.hpp> //abc::ILoadable
+#include <atl/abc/Loadable.hpp> //ILoadable
 
-namespace atl::abc {
+namespace atl {
 	class XmlLoadable : public ILoadable <const pugi::xml_node&> {
 	public:
 		bool loadFromStream(std::istream& in) override final {

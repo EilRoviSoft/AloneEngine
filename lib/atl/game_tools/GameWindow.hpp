@@ -7,8 +7,9 @@
 #include <string> //string
 
 //atl
+#include <atl/abc/Drawable.hpp> //IDrawable
 
-namespace atl::game_tools {
+namespace atl {
 	//TODO: useless now
 	class GameWindow : public sf::RenderWindow {
 	public:

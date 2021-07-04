@@ -15,7 +15,7 @@
 //atl
 #include <atl/thread_safe/Queue.hpp> //thread_safe::Queue
 
-namespace atl::manager {
+namespace atl {
 	using Task = std::function <void()>;
 
 	//Based on vit-vit/ctpl
@@ -69,7 +69,7 @@ namespace atl::manager {
 			m_aliveThreads = countNow;
 
 			size_t countBefore = m_workers.size();
-			if (_countNow == countBefore)
+			if (countNow == countBefore)
 				return;
 
 			if (!m_isStop && !m_isDone) {

@@ -1,8 +1,8 @@
 #pragma once
 //atl
-#include <atl/event_system/Listener.hpp> //event_system::IListener
+#include <atl/event_system/Listener.hpp> //IListener
 
-namespace atl::event_system {
+namespace atl {
 	template <class TObject, class ...TParams>
 	class MethodListener : public IListener <TParams...> {
 	public:

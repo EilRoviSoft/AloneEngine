@@ -5,15 +5,12 @@
 //sfml
 #include <SFML/Audio/SoundBuffer.hpp> //SoundBuffer
 
-//toml
-#include <toml/value.hpp> //value
-
 //atl
-#include <atl/abc/Manager.hpp> //manager::IManager
-#include <atl/util/Functions.hpp> //util::hash
+#include <atl/abc/Manager.hpp> //IManager, toml::value
+#include <atl/util/Functions.hpp> //hash
 
-namespace atl::manager {
-	class AudioManager : public atl::abc::IManager <sf::SoundBuffer> {
+namespace atl {
+	class AudioManager : public IManager <sf::SoundBuffer> {
 	public:
 		AudioManager(const std::string& filename) {
 			loadFromFile(filename);

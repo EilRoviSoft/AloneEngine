@@ -1,5 +1,5 @@
 #pragma once
-namespace atl::abc {
+namespace atl {
 	template <class Type>
 	class IRandomAccessible {
 	public:

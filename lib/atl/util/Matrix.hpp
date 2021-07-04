@@ -2,7 +2,7 @@
 //std
 #include <vector> //vector
 
-namespace atl::util {
+namespace atl {
 	//TODO: horizontal and vertical iterators and iterable_regions
 	template <class Type>
 	class Matrix {

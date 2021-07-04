@@ -6,9 +6,9 @@
 #include <toml/include.hpp> //value
 
 //atl
-#include <atl/abc/Loadable.hpp> //abc::ILoadable
+#include <atl/abc/Loadable.hpp> //ILoadable
 
-namespace atl::abc {
+namespace atl {
 	class TomlLoadable : public ILoadable <const toml::value&> {
 	public:
 		//it's crutch, because of Windows weird reading toml file

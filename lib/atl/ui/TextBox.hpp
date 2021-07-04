@@ -10,20 +10,20 @@
 #include <pugixml/pugixml.hpp> //xml_node
 
 //atl
-#include <atl/ui/Element.hpp> //ui::IElement
-#include <atl/util/Modifiers.hpp> //util::Modifiers
+#include <atl/abc/UiElement.hpp> //UiElement
+#include <atl/util/Modifiers.hpp> //Modifiers
 
-namespace atl::ui {
+namespace atl {
 	template <class WhatType>
 	class Editor;
 
-	class TextBox : public IElement {
+	class TextBox : public IUiElement {
 		friend Editor <TextBox>;
-		static const util::Modifiers <TextBox> mods;
+		static const Modifiers <TextBox> mods;
 	public:
-		TextBox() : IElement() {}
+		TextBox() : IUiElement() {}
 		TextBox(const sf::Text& text, const sf::RectangleShape& box) :
-			_text(text), _box(box), IElement() {}
+			_text(text), _box(box), IUiElement() {}
 
 		const sf::Text& getText() const {
 			return _text;
@@ -111,7 +111,7 @@ namespace atl::ui {
 		sf::RectangleShape _box;
 	};
 
-	const util::Modifiers <TextBox> TextBox::mods = {
+	const Modifiers <TextBox> TextBox::mods = {
 		{ "wrap", [](TextBox& tb) { return tb.wrapText(); } }
 	};
 }

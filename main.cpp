@@ -6,7 +6,7 @@ using namespace atl;
 int main() {
 	std::ifstream fin("res/a0a0.wld");
 
-	game_tools::Map map;
+	Map map;
 	map.loadFromStream(fin);
 
 	fin.close();

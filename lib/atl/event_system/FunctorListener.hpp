@@ -4,9 +4,9 @@
 #include <memory> //shared_ptr
 
 //atl
-#include <atl/event_system/Listener.hpp> //event_system::IListener
+#include <atl/event_system/Listener.hpp> //IListener
 
-namespace atl::event_system {
+namespace atl {
 	template <class TInvocable, class ...TParams>
 	requires std::invocable <TInvocable>
 	class FunctorListener : public IListener <TParams...> {

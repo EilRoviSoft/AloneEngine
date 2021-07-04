@@ -8,13 +8,14 @@
 #include <xutility> //find_if, swap, advance, prev
 
 //atl
-#include <atl/ui/Element.hpp> //ui::Element
-#include <atl/abc/Renderer.hpp> //abc::IRenderer
+#include <atl/ui/Element.hpp> //Element
+#include <atl/abc/Renderer.hpp> //IRenderer
 
-namespace atl::manager {
+namespace atl {
 	//shared or unique based?
 	//now is shared based
-	class UiRenderer : public abc::IRenderer {
+
+	class UiRenderer : public IRenderer {
 	public:
 		using Iterator = std::list <ui::Element>::const_iterator;
 

@@ -6,21 +6,20 @@
 #include <fstream> //ofstream
 
 //atl
-#include <atl/util/Matrix.hpp> //util::Matrix
-#include <atl/game_tools/Tile.hpp> //game_tools::Tile
-//#include <atl/abc/FlatLoadable.hpp> //abc::FlatLoadable
-#include <atl/abc/Loadable.hpp> //abc::ILoadable
-#include <atl/util/FlatLoader.hpp> //util::FlatLoader
+#include <atl/util/Matrix.hpp> //Matrix
+#include <atl/game_tools/Tile.hpp> //Tile
+//#include <atl/abc/FlatLoadable.hpp> //FlatLoadable
+#include <atl/abc/Loadable.hpp> //ILoadable
+#include <atl/util/FlatLoader.hpp> //FlatLoader
 
-namespace atl::game_tools {
-	class Map : public util::Matrix <Tile>, public abc::ILoadable <std::vector <id_t>&&> {
+namespace atl {
+	class Map : public Matrix <Tile>, public ILoadable <std::vector <id_t>&&> {
 	public:
 		Map() {}
 
 		bool loadFromStream(std::istream& in) override {
 			return load(util::FlatLoader::load <uint16_t, uint8_t>(in));
 		}
-
 		bool load(std::vector <id_t>&& data) override {
 			resize(data[0], data[1]);
 

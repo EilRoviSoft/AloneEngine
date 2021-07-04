@@ -6,9 +6,9 @@
 #include <string> //string
 
 //atl
-#include <atl/util/Functions.hpp> //util::hash
+#include <atl/util/Functions.hpp> //hash
 
-namespace atl::util {
+namespace atl {
 	template <class Type>
 	using WrapedTask = std::function <void(Type&)>;
 

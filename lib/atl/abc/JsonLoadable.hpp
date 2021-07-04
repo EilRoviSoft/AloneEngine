@@ -6,9 +6,9 @@
 #include <nlohmann/json.hpp> //json
 
 //atl
-#include <atl/abc/Loadable.hpp> //abc::ILoadable
+#include <atl/abc/Loadable.hpp> //ILoadable
 
-namespace atl::abc {
+namespace atl {
 	class JsonLoadable : public ILoadable <const nlohmann::json&> {
 	public:
 		bool loadFromStream(std::istream& in) override final {

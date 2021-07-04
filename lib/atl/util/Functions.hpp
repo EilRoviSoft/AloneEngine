@@ -2,7 +2,7 @@
 //std
 #include <iostream> //istream, ostream
 
-namespace atl::util {
+namespace atl {
 	template <class Type>
 	size_t hash(Type _what) {
 		return std::hash <Type> {}(_what);

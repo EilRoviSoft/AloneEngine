@@ -2,7 +2,7 @@
 //std
 #include <memory> //shared_ptr
 
-namespace atl::event_system {
+namespace atl {
 	template <class ...TParams>
 	class IListener {
 	protected:

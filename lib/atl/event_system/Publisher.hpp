@@ -4,9 +4,9 @@
 #include <shared_mutex> //shared_mutex
 
 //atl
-#include <atl/event_system/Listener.hpp> //event_system::IListener
+#include <atl/event_system/Listener.hpp> //IListener
 
-namespace atl::event_system {
+namespace atl {
 	template <class ...TParams>
 	class IPublisher {
 		using ListenerIt = std::list <Listener <TParams...>>::const_iterator;
