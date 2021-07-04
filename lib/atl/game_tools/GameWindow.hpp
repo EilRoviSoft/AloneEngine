@@ -13,7 +13,6 @@ namespace atl {
 	//TODO: useless now
 	class GameWindow : public sf::RenderWindow {
 	public:
-		GameWindow(sf::Vector2u size, const std::string& title) : 
-			sf::RenderWindow(sf::VideoMode(size.x, size.y), title) {}
+		GameWindow(sf::Vector2u size, const std::string& title);
 	};
 }

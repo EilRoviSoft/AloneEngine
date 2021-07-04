@@ -167,6 +167,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lib\atl\EventSystem.cpp" />
+    <ClCompile Include="lib\atl\game_tools\GameWindow.cpp" />
+    <ClCompile Include="lib\atl\game_tools\Map.cpp" />
+    <ClCompile Include="lib\atl\game_tools\Tile.cpp" />
+    <ClCompile Include="lib\atl\game_tools\TileMap.cpp" />
+    <ClCompile Include="lib\atl\manager\AudioManager.cpp" />
+    <ClCompile Include="lib\atl\manager\TextureManager.cpp" />
+    <ClCompile Include="lib\atl\manager\ThreadPool.cpp" />
+    <ClCompile Include="lib\atl\manager\UiRenderer.cpp" />
+    <ClCompile Include="lib\atl\ui\TextBox.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +191,7 @@
     <ClInclude Include="lib\atl\abc\TomlLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\UiElement.hpp" />
     <ClInclude Include="lib\atl\abc\XmlLoadable.hpp" />
+    <ClInclude Include="lib\atl\EventSystem.hpp" />
     <ClInclude Include="lib\atl\event_system\Event.hpp" />
     <ClInclude Include="lib\atl\event_system\FunctorListener.hpp" />
     <ClInclude Include="lib\atl\event_system\Listener.hpp" />

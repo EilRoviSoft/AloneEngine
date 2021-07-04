@@ -7,9 +7,11 @@
 //std
 #include <cstdint> //uint8_t
 #include <string> //string
+#include <map> //map
 
 //atl
 #include <atl/abc/XmlLoadable.hpp> //XmlLoadable, pugi::xml_node
+#include <atl/game_tools/Core.hpp> //core
 
 namespace atl {
 	using id_t = uint8_t;
@@ -20,14 +22,9 @@ namespace atl {
 		friend class TileMap;
 		friend class Tile;
 	public:
-		ITileInfo(const sf::Texture& texture) : _texture(texture) {}
+		ITileInfo(const sf::Texture& texture);
 
-		virtual bool load(const pugi::xml_node& data) override {
-			_max = data.attribute("variants").as_uint(1);
-			_name = data.attribute("display").as_string();
-
-			return true;
-		}
+		virtual bool load(const pugi::xml_node& data) override;
 
 	private:
 		const sf::Texture& _texture;
@@ -36,52 +33,37 @@ namespace atl {
 	};
 	using TileInfo = std::shared_ptr <ITileInfo>;
 
+	class TileInfoContainer : public XmlLoadable {
+	public:
+		TileInfo& operator[](size_t id);
+		const TileInfo& operator[](size_t id) const;
+
+		virtual bool load(const pugi::xml_node& data) override;
+
+	private:
+		std::map <size_t, TileInfo> _content;
+	};
+
 	struct TileInfoFactory {
-		static TileInfo create(const pugi::xml_node& data, const sf::Texture& texture) {
-			std::string type = data.name();
-			auto result = TileInfo(nullptr);
-
-			if (type == "ITileInfo") {
-				result.reset(new ITileInfo(texture));
-				result->load(data);
-			}
-
-			return result;
-		}
+		static TileInfo create(const pugi::xml_node& data, const sf::Texture& texture);
 	};
 
 	class Tile {
 		friend class TileMap;
 		friend class Map;
 	public:
-		Tile(const id_t& cluster = 0) : _cluster(cluster), _info(nullptr) {}
-		Tile(const id_t& cluster, TileInfo info) : _cluster(cluster), _info(info) {}
+		Tile(const id_t& cluster = 0);
+		Tile(const id_t& cluster, TileInfo info);
 
-		const ITileInfo* operator->() const {
-			return _info.get();
-		}
+		const ITileInfo* operator->() const;
 
-		const id_t& getCluster() const {
-			return _cluster;
-		}
+		const id_t& getCluster() const;
 
-		sf::IntRect getRegion() const {
-			auto row = (id_t) _cluster % inRow;
-			auto column = (id_t) _cluster / inRow;
-
-			return sf::IntRect(offset.x * (row + 1) + tile.x * row, offset.y * (row + 1) + tile.y * row, tile.x, tile.y);
-		}
+		sf::IntRect getRegion() const;
 
 	private:
-		id_t& getCluster() {
-			return _cluster;
-		}
-		void setCluster(id_t cluster) {
-			if (cluster < _info->_max)
-				_cluster = cluster;
-			else
-				_cluster = 0;
-		}
+		id_t& getCluster();
+		void setCluster(id_t cluster);
 
 		TileInfo _info;
 		//28 in a row

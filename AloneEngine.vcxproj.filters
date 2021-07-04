@@ -2,6 +2,36 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="lib\atl\EventSystem.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\game_tools\GameWindow.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\game_tools\Map.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\game_tools\Tile.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\game_tools\TileMap.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\manager\AudioManager.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\manager\TextureManager.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\manager\ThreadPool.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\manager\UiRenderer.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\ui\TextBox.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\UserInterface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resources %28res%29">
@@ -140,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="lib\atl\abc\Drawable.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\EventSystem.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

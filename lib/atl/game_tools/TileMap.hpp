@@ -12,73 +12,27 @@
 #include <atl/abc/XmlLoadable.hpp> //XmlLoadable, pugi::xml_node
 #include <atl/abc/TomlLoadable.hpp> //TomlLoadable, toml::value
 #include <atl/util/Functions.hpp> //hash
-#include <atl/game_tools/Core.hpp> //core
-#include <atl/game_tools/Tile.hpp> //Tile, ITileInfo, TileInfoFactory
+#include <atl/game_tools/Tile.hpp> //Tile, ITileInfo, TileInfoFactory, TileInfoContainer
 #include <atl/game_tools/Map.hpp> //Map
 
 namespace atl {
-	//TODO: atl::Drawable inherit
+	//TODO: atl::IDrawable inherit
 	class TileMap : public sf::Drawable, public TomlLoadable {
 	public:
-		TileMap() {}
+		TileMap();
 
-		void setTile(Tile value, id_t infoId, size_t x, size_t y) {
-			value._info = _info[infoId];
-			_storage.at(x, y) = value;
-		}
+		void setTile(Tile value, id_t infoId, size_t x, size_t y);
 
-		Tile& getTile(size_t x, size_t y) {
-			return _storage.at(x, y);
-		}
-		const Tile& getTile(size_t x, size_t y) const {
-			return _storage.at(x, y);
-		}
+		Tile& getTile(size_t x, size_t y);
+		const Tile& getTile(size_t x, size_t y) const;
 
-		virtual bool load(const toml::value& data) override {
-			bool infoLoadResult = _info.loadFromFile(data.at("tile-info").as_string());
-			bool storageLoadResult = _storage.loadFromFile((std::string) data.at("saves-folder").as_string() + "main.wld");
-
-			return !infoLoadResult || !storageLoadResult;
-		}
+		virtual bool load(const toml::value& data) override;
 
 	protected:
-		//TODO: predraw
-		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
-			sf::Sprite atlas;
-
-			for (size_t i = 0; i != _storage.cols(); i++)
-				for (size_t j = 0; j != _storage.rows(); j++) {
-					atlas.setTexture(_storage.at(i, j)->_texture);
-					atlas.setTextureRect(_storage.at(i, j).getRegion());
-					atlas.setPosition(i * tile.x, j * tile.y);
-
-					target.draw(atlas, states);
-				}
-		}
+		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	private:
-		class : public XmlLoadable {
-		public:
-			TileInfo& operator[](size_t id) {
-				return _content.at(id);
-			}
-			const TileInfo& operator[](size_t id) const {
-				return _content.at(id);
-			}
-
-			virtual bool load(const pugi::xml_node& data) override {
-				for (const auto& it : data) {
-					const auto& texture = atl::core.textures.at(it.attribute("image").as_string());
-					_content.insert({ it.attribute("id").as_ullong(), TileInfoFactory::create(it, texture) });
-				}
-
-				return true;
-			}
-
-		private:
-			std::map <size_t, TileInfo> _content;
-		} _info;
-
+		TileInfoContainer _info;
 		Map _storage;
 	};
 }
