@@ -34,10 +34,10 @@ namespace atl::game_tools {
 		}
 
 		virtual bool load(const toml::value& data) override {
-			if (!_info.loadFromFile(data.at("tile-info").as_string()) || !_storage.loadFromFile(data.at("saves-folder").as_string().str + "main.wld"))
-				return false;
+			bool infoLoadResult = _info.loadFromFile(data.at("tile-info").as_string());
+			bool storageLoadResult = _storage.loadFromFile((std::string) data.at("saves-folder").as_string() + "main.wld");
 
-			return true;
+			return !infoLoadResult || !storageLoadResult;
 		}
 
 	protected:

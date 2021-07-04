@@ -170,6 +170,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\atl\abc\Drawable.hpp" />
     <ClInclude Include="lib\atl\abc\FlatLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\JsonLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\Loadable.hpp" />

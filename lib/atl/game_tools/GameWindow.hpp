@@ -6,6 +6,8 @@
 //std
 #include <string> //string
 
+//atl
+
 namespace atl::game_tools {
 	//TODO: useless now
 	class GameWindow : public sf::RenderWindow {
