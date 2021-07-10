@@ -10,6 +10,4 @@ namespace atl {
 		sf::Font font;
 		TextureManager textures;
 	};
-
-	static Core core;
 }

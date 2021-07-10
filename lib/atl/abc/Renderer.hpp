@@ -1,10 +1,11 @@
 #pragma once
 //sf
-#include <SFML/Graphics/RenderWindow.hpp> //RenderWindow
+#include <atl/game_tools/GameWindow.hpp> //GameWindow
 
 namespace atl {
 	class IRenderer {
 	public:
-		virtual void render(sf::RenderWindow& window) const = 0;
+		virtual void prerender(GameWindow& target, sf::RenderStates states) const = 0;
+		virtual void render(GameWindow& target, sf::RenderStates states) const = 0;
 	};
 }

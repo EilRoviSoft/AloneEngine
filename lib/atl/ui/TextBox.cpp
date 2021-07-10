@@ -15,7 +15,7 @@ void atl::TextBox::setFont(const sf::Font& font) {
 	_text.setFont(font);
 }
 
-void atl::TextBox::wrapText(float padding = 5.f) {
+void atl::TextBox::wrapText(float padding) {
 	auto rect = _text.getGlobalBounds();
 	auto position = _text.getPosition();
 	float dx = rect.left - position.x, dy = rect.top - position.y;

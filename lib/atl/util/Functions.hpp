@@ -4,8 +4,8 @@
 
 namespace atl {
 	template <class Type>
-	size_t hash(Type _what) {
-		return std::hash <Type> {}(_what);
+	size_t hash(Type what) {
+		return std::hash <Type> {}(what);
 	}
 
 	template <class Type>

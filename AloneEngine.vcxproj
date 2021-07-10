@@ -180,7 +180,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\atl\abc\Drawable.hpp" />
+    <ClInclude Include="lib\atl\abc\Renderable.hpp" />
     <ClInclude Include="lib\atl\abc\FlatLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\JsonLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\Loadable.hpp" />
@@ -190,6 +190,7 @@
     <ClInclude Include="lib\atl\abc\Runnable.hpp" />
     <ClInclude Include="lib\atl\abc\TomlLoadable.hpp" />
     <ClInclude Include="lib\atl\abc\UiElement.hpp" />
+    <ClInclude Include="lib\atl\abc\Updatable.hpp" />
     <ClInclude Include="lib\atl\abc\XmlLoadable.hpp" />
     <ClInclude Include="lib\atl\EventSystem.hpp" />
     <ClInclude Include="lib\atl\event_system\Event.hpp" />
@@ -222,9 +223,14 @@
     <Font Include="res\settings\ptserif.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\textures\block_0.bmp" />
+    <Image Include="res\textures\block_0.png" />
+    <Image Include="res\textures\block_0_small.bmp" />
+    <Image Include="res\textures\block_0_small.png" />
     <Image Include="res\textures\madoka magica.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="res\game\tile-info.xml" />
     <Xml Include="res\ui\test.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

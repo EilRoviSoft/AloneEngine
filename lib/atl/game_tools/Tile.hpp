@@ -3,6 +3,7 @@
 #include <SFML/System/Vector2.hpp> //Vector2i
 #include <SFML/Graphics/Rect.hpp> //IntRect
 #include <SFML/Graphics/Texture.hpp> //Texture
+#include <SFML/Graphics/Drawable.hpp> //Drawable
 
 //std
 #include <cstdint> //uint8_t
@@ -11,9 +12,11 @@
 
 //atl
 #include <atl/abc/XmlLoadable.hpp> //XmlLoadable, pugi::xml_node
-#include <atl/game_tools/Core.hpp> //core
+#include <atl/game_tools/Core.hpp> //Core
 
 namespace atl {
+	extern Core context;
+
 	using id_t = uint8_t;
 	const sf::Vector2i tile(16, 16), offset(2, 2);
 	const id_t inRow = 28;
@@ -49,7 +52,6 @@ namespace atl {
 	};
 
 	class Tile {
-		friend class TileMap;
 		friend class Map;
 	public:
 		Tile(const id_t& cluster = 0);
@@ -58,13 +60,12 @@ namespace atl {
 		const ITileInfo* operator->() const;
 
 		const id_t& getCluster() const;
-
 		sf::IntRect getRegion() const;
 
-	private:
-		id_t& getCluster();
 		void setCluster(id_t cluster);
+		void setInfo(TileInfo info);
 
+	private:
 		TileInfo _info;
 		//28 in a row
 		id_t _cluster;

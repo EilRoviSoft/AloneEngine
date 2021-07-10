@@ -33,7 +33,7 @@ const atl::TileInfo& atl::TileInfoContainer::operator[](size_t id) const {
 
 bool atl::TileInfoContainer::load(const pugi::xml_node& data) {
 	for (const auto& it : data) {
-		const auto& texture = atl::core.textures.at(it.attribute("image").as_string());
+		const auto& texture = context.textures.at(it.attribute("image").as_string());
 		_content.insert({ it.attribute("id").as_ullong(), TileInfoFactory::create(it, texture) });
 	}
 
@@ -51,7 +51,6 @@ const atl::ITileInfo* atl::Tile::operator->() const {
 const atl::id_t& atl::Tile::getCluster() const {
 	return _cluster;
 }
-
 sf::IntRect atl::Tile::getRegion() const {
 	auto row = (id_t) _cluster % inRow;
 	auto column = (id_t) _cluster / inRow;
@@ -59,12 +58,12 @@ sf::IntRect atl::Tile::getRegion() const {
 	return sf::IntRect(offset.x * (row + 1) + tile.x * row, offset.y * (row + 1) + tile.y * row, tile.x, tile.y);
 }
 
-atl::id_t& atl::Tile::getCluster() {
-	return _cluster;
-}
 void atl::Tile::setCluster(id_t cluster) {
 	if (cluster < _info->_max)
 		_cluster = cluster;
 	else
 		_cluster = 0;
+}
+void atl::Tile::setInfo(TileInfo info) {
+	_info = info;
 }

@@ -73,6 +73,9 @@
     <Filter Include="Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses">
       <UniqueIdentifier>{7cd5d741-3d01-42e8-91fb-ac82e526ac75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources %28res%29\game">
+      <UniqueIdentifier>{629e0e2f-edc8-4395-9dda-b63fd44742a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\atl\manager\TextureManager.hpp">
@@ -168,11 +171,14 @@
     <ClInclude Include="lib\atl\util\FlatLoader.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\Util</Filter>
     </ClInclude>
-    <ClInclude Include="lib\atl\abc\Drawable.hpp">
+    <ClInclude Include="lib\atl\abc\Renderable.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses</Filter>
     </ClInclude>
     <ClInclude Include="lib\atl\EventSystem.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\abc\Updatable.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -192,10 +198,25 @@
     <Image Include="res\textures\madoka magica.jpg">
       <Filter>Resources %28res%29\textures</Filter>
     </Image>
+    <Image Include="res\textures\block_0_small.png">
+      <Filter>Resources %28res%29\textures</Filter>
+    </Image>
+    <Image Include="res\textures\block_0.bmp">
+      <Filter>Resources %28res%29\textures</Filter>
+    </Image>
+    <Image Include="res\textures\block_0.png">
+      <Filter>Resources %28res%29\textures</Filter>
+    </Image>
+    <Image Include="res\textures\block_0_small.bmp">
+      <Filter>Resources %28res%29\textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="res\ui\test.xml">
       <Filter>Resources %28res%29\ui</Filter>
+    </Xml>
+    <Xml Include="res\game\tile-info.xml">
+      <Filter>Resources %28res%29\game</Filter>
     </Xml>
   </ItemGroup>
 </Project>

@@ -1,7 +1,4 @@
 #pragma once
-//sf
-#include <SFML/Graphics.hpp> //Drawable
-
 //pugi
 #include <pugixml/pugixml.hpp> //xml_document
 
@@ -11,12 +8,12 @@
 #include <string> //string
 
 //atl
-#define XML_LOADABLE
-#include <atl/abc/Loadable.hpp> //XmlLoadable
+#include <atl/abc/Renderable.hpp> //IRenderable
+#include <atl/abc/XmlLoadable.hpp> //XmlLoadable
 #include <atl/util/Functions.hpp> //hash
 
 namespace atl {
-	class IUiElement : public sf::Drawable, public XmlLoadable {
+	class IUiElement : public IRenderable, public XmlLoadable {
 		friend class UiRenderer;
 	public:
 		static sf::Vector2f getCenter(sf::Vector2f position, sf::Vector2f size) {
@@ -41,10 +38,8 @@ namespace atl {
 		}
 
 	protected:
-		bool m_onUpdate = true;
-
 		void setId(const std::string& another) {
-			_id = util::hash(another);
+			_id = hash(another);
 		}
 
 	private:

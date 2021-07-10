@@ -20,7 +20,8 @@ namespace atl {
 	public:
 		using Iterator = std::list <UiElement>::const_iterator;
 
-		void render(sf::RenderWindow& window) const final override;
+		void prerender(GameWindow& target, sf::RenderStates states) const final override;
+		void render(GameWindow& target, sf::RenderStates states) const final override;
 
 		Iterator findByName(const std::string& name) const;
 
@@ -34,7 +35,8 @@ namespace atl {
 
 		Iterator remove(Iterator where);
 
-	protected:
-		std::list <UiElement> m_layers;
+	private:
+		std::list <UiElement> _layers;
+		std::list <UiElement*> _onUpdateElements;
 	};
 }
