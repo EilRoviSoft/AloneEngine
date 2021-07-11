@@ -1,10 +1,84 @@
 #include "Tile.hpp"
 
+//Cluster
+atl::Cluster::Cluster(size_t id) : value((Type) id) {}
+atl::Cluster::Cluster(Type value) : value(value) {}
+
+atl::Cluster::operator Type() {
+	return value;
+}
+
+atl::Cluster atl::Cluster::fromString(const std::string& source) {
+	switch_str(source.c_str()) {
+		case_str("ba"): return BlockSolid;
+		case_str("bi"): return BlockInside;
+		case_str("bu"): return BlockUp;
+		case_str("br"): return BlockRight;
+		case_str("bd"): return BlockDown;
+		case_str("bl"): return BlockLeft;
+		case_str("bv"): return BlockVertical;
+		case_str("bh"): return BlockHorizontal;
+		case_str("bdi"): return BlockDownInverse;
+		case_str("bli"): return BlockLeftInverse;
+		case_str("bui"): return BlockUpInverse;
+		case_str("bri"): return BlockRightInverse;
+		case_str("t1i"): return Triangle1Inside;
+		case_str("t2i"): return Triangle2Inside;
+		case_str("t3i"): return Triangle3Inside;
+		case_str("t4i"): return Triangle4Inside;
+		case_str("t1le"): return Triangle1LeftEdge;
+		case_str("t2le"): return Triangle2LeftEdge;
+		case_str("t3le"): return Triangle3LeftEdge;
+		case_str("t4le"): return Triangle4LeftEdge;
+		case_str("t1re"): return Triangle1RightEdge;
+		case_str("t2re"): return Triangle2RightEdge;
+		case_str("t3re"): return Triangle3RightEdge;
+		case_str("t4re"): return Triangle4RightEdge;
+		case_str("t1s"): return Triangle1Solid;
+		case_str("t2s"): return Triangle2Solid;
+		case_str("t3s"): return Triangle3Solid;
+		case_str("t4s"): return Triangle4Solid;
+		default: return BlockSolid;
+	}
+}
+std::string atl::Cluster::toString(Cluster what) {
+	switch (what) {
+	case BlockSolid: return "ba";
+	case BlockInside: return "bi";
+	case BlockUp: return "bi";
+	case BlockRight: return "br";
+	case BlockDown: return "bd";
+	case BlockLeft: return "bl";
+	case BlockVertical: return "bv";
+	case BlockHorizontal: return "bh";
+	case BlockDownInverse: return "bdi";
+	case BlockLeftInverse: return "bli";
+	case BlockUpInverse: return "bui";
+	case BlockRightInverse: return "bri";
+	case Triangle1Inside: return "t1i";
+	case Triangle2Inside: return "t2i";
+	case Triangle3Inside: return "t3i";
+	case Triangle4Inside: return "t4i";
+	case Triangle1LeftEdge: return "t1le";
+	case Triangle2LeftEdge: return "t2le";
+	case Triangle3LeftEdge: return "t3le";
+	case Triangle4LeftEdge: return "t4le";
+	case Triangle1RightEdge: return "t1re";
+	case Triangle2RightEdge: return "t2re";
+	case Triangle3RightEdge: return "t3re";
+	case Triangle4RightEdge: return "t4re";
+	case Triangle1Solid: return "t1s";
+	case Triangle2Solid: return "t2s";
+	case Triangle3Solid: return "t3s";
+	case Triangle4Solid: return "t4s";
+	}
+}
+
 //ITileInfo
 atl::ITileInfo::ITileInfo(const sf::Texture& texture) : _texture(texture) {}
 
 bool atl::ITileInfo::load(const pugi::xml_node& data) {
-	_max = data.attribute("variants").as_uint(1);
+	_variants = data.attribute("variants").as_uint(1);
 	_name = data.attribute("display").as_string();
 
 	return true;
@@ -59,7 +133,7 @@ sf::IntRect atl::Tile::getRegion() const {
 }
 
 void atl::Tile::setCluster(id_t cluster) {
-	if (cluster < _info->_max)
+	if (cluster < _info->_variants)
 		_cluster = cluster;
 	else
 		_cluster = 0;

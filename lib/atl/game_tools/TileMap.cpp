@@ -15,20 +15,9 @@ const atl::Tile& atl::TileMap::getTile(size_t x, size_t y) const {
 }
 
 bool atl::TileMap::load(const toml::value& data) {
-	bool infoLoadResult = _info.loadFromFile(data.at("tile-info").as_string());
 	bool storageLoadResult = _storage.loadFromFile((std::string) data.at("saves-folder").as_string() + "main.wld");
 
-	if (!infoLoadResult || !storageLoadResult)
-		return false;
-
-	for (size_t i = 0; i != _storage.size(); i++) {
-		auto& tile = _storage.at(i);
-		const auto& id = tile.getCluster();
-
-		tile.setInfo(_info[id]);
-	}
-
-	return true;
+	return storageLoadResult;
 }
 
 void atl::TileMap::receive(const IPostable <TileMapPoints>& what) {

@@ -214,6 +214,9 @@
     <ClInclude Include="lib\atl\util\Matrix.hpp" />
     <ClInclude Include="lib\atl\util\Modifiers.hpp" />
     <ClInclude Include="lib\atl\util\RenderRegion.hpp" />
+    <ClInclude Include="lib\uxl\basic_types.hpp" />
+    <ClInclude Include="lib\uxl\hash.hpp" />
+    <ClInclude Include="lib\uxl\switch_string.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\settings\config.toml" />

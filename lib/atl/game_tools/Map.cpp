@@ -3,12 +3,14 @@
 bool atl::Map::loadFromStream(std::istream& in) {
 	return load(FlatLoader::load <uint16_t, uint8_t>(in));
 }
-bool atl::Map::load(std::vector<id_t>&& data) {
+bool atl::Map::load(std::vector <id_t>&& data) {
 	resize(data[0], data[1]);
 
 	for (size_t i = 0; i != size(); i++) {
-		at(i) = data[i * 2 + 2];
-		at(i).setCluster(data[i * 2 + 3]);
+		auto& tile = at(i);
+
+		tile.setInfo(context.tiles[data[i * 2 + 2]]);
+		tile.setCluster(data[i * 2 + 3]);
 	}
 
 	return true;

@@ -12,7 +12,7 @@ GameWindow window(sf::Vector2u(800, 600), "Simple Window");
 int main() {
 	context.textures.loadFromFile("res/settings/textures.toml");
 	TileMap map;
-	map.loadFromFile("res/saves/Eil/tilemap.toml");
+	map.loadFromFile("res/saves/Eil/basic.toml");
 
 	sf::Clock clock;
 

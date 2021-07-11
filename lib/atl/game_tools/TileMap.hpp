@@ -1,6 +1,6 @@
 #pragma once
 //sf
-#include <SFML/Graphics.hpp> //Sprite, RenderTarget, RenderStates
+#include <SFML/Graphics.hpp> //Sprite, RenderTarget, RenderStates, Vector2
 
 //std
 #include <cstdint> //uint8_t
@@ -10,14 +10,12 @@
 #include <string> //string
 
 //atl
-#include <atl/abc/XmlLoadable.hpp> //XmlLoadable, pugi::xml_node
 #include <atl/abc/TomlLoadable.hpp> //TomlLoadable, toml::value
 #include <atl/abc/Renderable.hpp> //IComplexRenderable
 #include <atl/abc/Updatable.hpp> //IReceivable
-#include <atl/util/Functions.hpp> //hash
 #include <atl/game_tools/Tile.hpp> //Tile, ITileInfo, TileInfoFactory, TileInfoContainer
 #include <atl/game_tools/Map.hpp> //Map
-#include <atl/game_tools/Core.hpp> //Core
+#include <atl/game_tools/Core.hpp> //context
 
 namespace atl {
 	using TileMapPoints = std::list <sf::Vector2 <size_t>>;
@@ -43,7 +41,6 @@ namespace atl {
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	private:
-		TileInfoContainer _info;
 		Map _storage;
 		TileMapPoints _onUpdateTiles;
 	};

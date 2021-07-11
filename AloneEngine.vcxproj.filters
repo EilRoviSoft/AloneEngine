@@ -76,6 +76,9 @@
     <Filter Include="Resources %28res%29\game">
       <UniqueIdentifier>{629e0e2f-edc8-4395-9dda-b63fd44742a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library %28lib%29\UtilityExtensibleLibrary %28uxl%29">
+      <UniqueIdentifier>{39adf866-c75e-4d5d-88d4-66239c697649}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\atl\manager\TextureManager.hpp">
@@ -179,6 +182,15 @@
     </ClInclude>
     <ClInclude Include="lib\atl\abc\Updatable.hpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\AbstractBaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\uxl\hash.hpp">
+      <Filter>Library %28lib%29\UtilityExtensibleLibrary %28uxl%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\uxl\basic_types.hpp">
+      <Filter>Library %28lib%29\UtilityExtensibleLibrary %28uxl%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\uxl\switch_string.hpp">
+      <Filter>Library %28lib%29\UtilityExtensibleLibrary %28uxl%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
