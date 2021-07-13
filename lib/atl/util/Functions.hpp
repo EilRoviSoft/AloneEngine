@@ -9,10 +9,8 @@
 #include <uxl/hash.hpp> //hash (for string)
 
 namespace atl {
-	using cstring = char*;
-
 	//end > start
-	size_t random(size_t start, size_t end) {
+	inline size_t random(size_t start, size_t end) {
 		auto delta = end - start;
 		return rand() % delta + start;
 	}
@@ -24,14 +22,14 @@ namespace atl {
 	}
 
 	template <class Type>
-	Type scan(std::istream& from = std::cin) {
+	inline Type scan(std::istream& from = std::cin) {
 		Type to;
 		from >> to;
 		return to;
 	}
 
 	template <class Type>
-	void print(const Type& what, std::ostream& to = std::cout) {
+	inline void print(const Type& what, std::ostream& to = std::cout) {
 		to << what;
 	}
 }

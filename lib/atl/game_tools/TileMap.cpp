@@ -2,8 +2,8 @@
 
 atl::TileMap::TileMap() {}
 
-void atl::TileMap::setTile(Tile value, id_t infoId, size_t x, size_t y) {
-	value.setInfo(_info[infoId]);
+void atl::TileMap::setTile(size_t x, size_t y, Tile value, TileInfo info) {
+	value.setInfo(info);
 	_storage.at(x, y) = value;
 }
 
@@ -21,8 +21,7 @@ bool atl::TileMap::load(const toml::value& data) {
 }
 
 void atl::TileMap::receive(const IPostable <TileMapPoints>& what) {
-	auto onMerge = what.post();
-	_onUpdateTiles.insert(_onUpdateTiles.end(), onMerge.begin(), onMerge.end());
+	_onUpdateTiles.merge(what.post());
 }
 
 void atl::TileMap::predraw(sf::RenderTarget& target, sf::RenderStates states) const {

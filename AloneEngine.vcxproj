@@ -171,6 +171,8 @@
     <ClCompile Include="lib\atl\game_tools\GameWindow.cpp" />
     <ClCompile Include="lib\atl\game_tools\Map.cpp" />
     <ClCompile Include="lib\atl\game_tools\Tile.cpp" />
+    <ClCompile Include="lib\atl\game_tools\TileInfoContainer.cpp" />
+    <ClCompile Include="lib\atl\game_tools\TileInfoFactory.cpp" />
     <ClCompile Include="lib\atl\game_tools\TileMap.cpp" />
     <ClCompile Include="lib\atl\manager\AudioManager.cpp" />
     <ClCompile Include="lib\atl\manager\TextureManager.cpp" />
@@ -202,6 +204,8 @@
     <ClInclude Include="lib\atl\game_tools\GameWindow.hpp" />
     <ClInclude Include="lib\atl\game_tools\Map.hpp" />
     <ClInclude Include="lib\atl\game_tools\Tile.hpp" />
+    <ClInclude Include="lib\atl\game_tools\TileInfoContainer.hpp" />
+    <ClInclude Include="lib\atl\game_tools\TileInfoFactory.hpp" />
     <ClInclude Include="lib\atl\game_tools\TileMap.hpp" />
     <ClInclude Include="lib\atl\manager\AudioManager.hpp" />
     <ClInclude Include="lib\atl\manager\UiRenderer.hpp" />
@@ -216,6 +220,7 @@
     <ClInclude Include="lib\atl\util\RenderRegion.hpp" />
     <ClInclude Include="lib\uxl\basic_types.hpp" />
     <ClInclude Include="lib\uxl\hash.hpp" />
+    <ClInclude Include="lib\uxl\RequestQueue.hpp" />
     <ClInclude Include="lib\uxl\switch_string.hpp" />
   </ItemGroup>
   <ItemGroup>

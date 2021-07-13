@@ -84,36 +84,6 @@ bool atl::ITileInfo::load(const pugi::xml_node& data) {
 	return true;
 }
 
-//ITileInfoFactory
-atl::TileInfo atl::TileInfoFactory::create(const pugi::xml_node& data, const sf::Texture& texture) {
-	std::string type = data.name();
-	auto result = TileInfo(nullptr);
-
-	if (type == "ITileInfo") {
-		result.reset(new ITileInfo(texture));
-		result->load(data);
-	}
-
-	return result;
-}
-
-//TileInfoContainer
-atl::TileInfo& atl::TileInfoContainer::operator[](size_t id) {
-	return _content.at(id);
-}
-const atl::TileInfo& atl::TileInfoContainer::operator[](size_t id) const {
-	return _content.at(id);
-}
-
-bool atl::TileInfoContainer::load(const pugi::xml_node& data) {
-	for (const auto& it : data) {
-		const auto& texture = context.textures.at(it.attribute("image").as_string());
-		_content.insert({ it.attribute("id").as_ullong(), TileInfoFactory::create(it, texture) });
-	}
-
-	return true;
-}
-
 //Tile
 atl::Tile::Tile(const id_t& cluster) : _cluster(cluster), _info(nullptr) {}
 atl::Tile::Tile(const id_t& cluster, TileInfo info) : _cluster(cluster), _info(info) {}

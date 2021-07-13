@@ -3,7 +3,6 @@
 #include <SFML/System/Vector2.hpp> //Vector2i
 #include <SFML/Graphics/Rect.hpp> //IntRect
 #include <SFML/Graphics/Texture.hpp> //Texture
-#include <SFML/Graphics/Drawable.hpp> //Drawable
 
 //std
 #include <cstdint> //uint8_t
@@ -15,7 +14,6 @@
 
 //atl
 #include <atl/abc/XmlLoadable.hpp> //XmlLoadable, pugi::xml_node
-#include <atl/game_tools/Core.hpp> //Core
 #include <atl/util/Functions.hpp> //hash
 
 namespace atl {
@@ -84,21 +82,6 @@ namespace atl {
 		std::string _name;
 	};
 	using TileInfo = std::shared_ptr <ITileInfo>;
-
-	class TileInfoContainer : public XmlLoadable {
-	public:
-		TileInfo& operator[](size_t id);
-		const TileInfo& operator[](size_t id) const;
-
-		virtual bool load(const pugi::xml_node& data) override;
-
-	private:
-		std::map <size_t, TileInfo> _content;
-	};
-
-	struct TileInfoFactory {
-		static TileInfo create(const pugi::xml_node& data, const sf::Texture& texture);
-	};
 
 	class Tile {
 	public:

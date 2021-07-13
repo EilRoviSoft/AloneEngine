@@ -4,7 +4,7 @@
 
 //atl
 #include <atl/manager/TextureManager.hpp> //TextureManager
-#include <atl/game_tools/Tile.hpp> //TileInfoContainer
+#include <atl/game_tools/TileInfoContainer.hpp> //TileInfoContainer
 
 namespace atl {
 	struct Core {

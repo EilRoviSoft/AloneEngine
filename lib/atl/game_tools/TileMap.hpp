@@ -5,9 +5,10 @@
 //std
 #include <cstdint> //uint8_t
 #include <memory> //shared_ptr
-#include <map> //map
-#include <list> //list
 #include <string> //string
+
+//uxl
+#include <uxl/RequestQueue.hpp> //RequestQueue
 
 //atl
 #include <atl/abc/TomlLoadable.hpp> //TomlLoadable, toml::value
@@ -18,14 +19,15 @@
 #include <atl/game_tools/Core.hpp> //context
 
 namespace atl {
-	using TileMapPoints = std::list <sf::Vector2 <size_t>>;
+	using TileMapPoints = uxl::RequestQueue <sf::Vector2 <size_t>>;
 
+	//TODO: Make it centralized
 	//TODO: Animated tiles support
 	class TileMap : public IComplexRenderable, public TomlLoadable, public IReceivable <TileMapPoints> {
 	public:
 		TileMap();
 
-		void setTile(Tile value, id_t infoId, size_t x, size_t y);
+		void setTile(size_t x, size_t y, Tile value, TileInfo info);
 
 		Tile& getTile(size_t x, size_t y);
 		const Tile& getTile(size_t x, size_t y) const;

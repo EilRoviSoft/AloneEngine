@@ -32,6 +32,12 @@
     <ClCompile Include="lib\atl\ui\TextBox.cpp">
       <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\UserInterface</Filter>
     </ClCompile>
+    <ClCompile Include="lib\atl\game_tools\TileInfoContainer.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\atl\game_tools\TileInfoFactory.cpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resources %28res%29">
@@ -191,6 +197,15 @@
     </ClInclude>
     <ClInclude Include="lib\uxl\switch_string.hpp">
       <Filter>Library %28lib%29\UtilityExtensibleLibrary %28uxl%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\uxl\RequestQueue.hpp">
+      <Filter>Library %28lib%29\UtilityExtensibleLibrary %28uxl%29</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\game_tools\TileInfoContainer.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\atl\game_tools\TileInfoFactory.hpp">
+      <Filter>Library %28lib%29\AloneTemplateLibrary %28atl%29\GameTools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

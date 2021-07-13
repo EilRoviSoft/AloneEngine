@@ -1,4 +1,6 @@
 #include "Map.hpp"
+//atl
+#include <atl/game_tools/Core.hpp> //context
 
 bool atl::Map::loadFromStream(std::istream& in) {
 	return load(FlatLoader::load <uint16_t, uint8_t>(in));

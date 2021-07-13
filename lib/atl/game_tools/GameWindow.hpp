@@ -13,7 +13,7 @@
 namespace atl {
 	class GameWindow : public sf::RenderWindow {
 	public:
-		GameWindow(sf::Vector2u size, const std::string& title);
+		GameWindow(sf::Vector2u size, const std::string& title, size_t framerate = 60);
 
 		void predraw(const IComplexRenderable& what, const sf::RenderStates& states = sf::RenderStates::Default);
 	};
